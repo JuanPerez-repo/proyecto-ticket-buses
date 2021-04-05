@@ -69,6 +69,7 @@ public class InfoConductor extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
 
         jLabel16.setText("Buscar por Doc. Identidad:");
@@ -237,7 +238,8 @@ public class InfoConductor extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel11.setText("Año nacimiento");
 
-        jLabel19.setIcon(new javax.swing.ImageIcon("C:\\Users\\sport\\Documents\\NetBeansProjects\\ProyectoPerezCastroNarvaez\\img\\Captura2.PNG")); // NOI18N
+        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Captura2.PNG"))); // NOI18N
+        jLabel20.setText("jLabel20");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -262,8 +264,12 @@ public class InfoConductor extends javax.swing.JFrame {
                         .addComponent(jLabel10))
                     .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel19)
-                .addGap(46, 46, 46))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel19)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(42, 42, 42))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -294,13 +300,15 @@ public class InfoConductor extends javax.swing.JFrame {
                                 .addComponent(jLabel7))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(146, 146, 146)
-                        .addComponent(jLabel19)))
-                .addContainerGap(146, Short.MAX_VALUE))
+                        .addComponent(jLabel19)
+                        .addGap(9, 9, 9)
+                        .addComponent(jLabel20)))
+                .addContainerGap(137, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 700, 410));
 
-        jLabel18.setIcon(new javax.swing.ImageIcon("C:\\Users\\sport\\Documents\\NetBeansProjects\\ProyectoPerezCastroNarvaez\\img\\photo-1593167370906-75d280c78954.jfif")); // NOI18N
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/3e11d0b4-01f7-4495-b1fc-1eea5bfc8a14.jpg"))); // NOI18N
         getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 440));
 
         pack();
@@ -370,6 +378,7 @@ public class InfoConductor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

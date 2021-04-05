@@ -177,13 +177,13 @@ public class Login extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 10, 330, 500));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, 330, 500));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\sport\\Documents\\NetBeansProjects\\ProyectoPerezCastroNarvaez\\img\\Captura.PNG")); // NOI18N
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 350, 420));
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Captura.PNG"))); // NOI18N
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 350, 420));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\sport\\Documents\\NetBeansProjects\\ProyectoPerezCastroNarvaez\\img\\photo-1593167370906-75d280c78954.jfif")); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 530));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/3e11d0b4-01f7-4495-b1fc-1eea5bfc8a14.jpg"))); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, 530));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
