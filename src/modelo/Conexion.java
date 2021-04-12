@@ -8,35 +8,33 @@ import java.util.logging.Logger;
 
 public class Conexion {
 
-private final String base = "proyecto_perez_castro_narvaez";
+    private final String base = "proyecto_perez_castro_narvaez";
 
-private final String user = "root";
+    private final String user = "root";
 
-private final String password = "";
+    private final String password = "";
 
-private final String url = "jdbc:mysql://localhost:3306" + base;
+    private final String url = "jdbc:mysql://localhost:3306" + base;
 
-private Connection con = null;
+    private Connection con = null;
 
-public Connection getConexion(){
-    
-    try{
+    public Connection getConexion() {
 
-Class.forName("com.mysql.jdbc.Driver");
+        try {
 
-con = (Connection) DriverManager.getConnection(this.url, this.user, this.password);
+            Class.forName("com.mysql.jdbc.Driver");
 
-}catch(SQLException e){
+            con = (Connection) DriverManager.getConnection(this.url, this.user, this.password);
 
-        System.err.println(e);
+        } catch (SQLException e) {
 
-}   catch (ClassNotFoundException ex) {
-        Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
+            System.err.println("Error en el getConexion: " + e);
+
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return con;
     }
-    
-    return con;
-}
 
 }
-
-
