@@ -13,7 +13,6 @@ public class M_Login extends Conexion {
     private String contrasena;
 
 
-
     public String getUsuario() {
         return usuario;
     }
@@ -36,34 +35,29 @@ public class M_Login extends Conexion {
 
         Connection con = getConexion();
 
-        String sql = "SELECT * FROM administrador";
+        String sql = "SELECT usuario_ad, contrasena from administrador";
+
 
         try {
 
             ps = con.prepareStatement(sql);
 
             ResultSet result = ps.executeQuery();
+            
 
-            String[] array = new String[1];
 
-            int i = 0;
-
-            while (result.next()) {
-
-                array[i] = result.getString(i);
-
-                i++;
-
+            int i = 1;
+            
+            if (result.next()){
+                if (usuario.equals(result.getString(1)) && contrasena.equals(result.getString(2))){
+                    return true;
+                } else {
+                    return false;
+                }
             }
-
-            if (usuario.equals(array[0]) && contrasena.equals(array[1])) {
-
-                return true;
-
-            } else {
-
-                return false;
-            }
+            
+            return false;
+            
 
         } catch (SQLException e) {
 

@@ -12,8 +12,9 @@ public class ProyectoPerezCastroNarvaez {
         Login login = new Login();
         Administrador admin = new Administrador();
         M_Login mlogin = new M_Login();
+        CrearUsuario rUsuario = new CrearUsuario();
         
-        C_Login clogin = new C_Login(login, mlogin, admin);
+        C_Login clogin = new C_Login(login, mlogin, admin, rUsuario);
         clogin.iniciarC_Login();
         login.setVisible(true);
         
