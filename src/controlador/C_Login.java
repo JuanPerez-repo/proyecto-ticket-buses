@@ -4,9 +4,13 @@ import modelo.M_Login;
 import vista.Login;
 import vista.Administrador;
 import vista.CrearUsuario; //En el video 18 el wey lo llama Registro a esta vista.
+import modelo.SQL_Cliente; //consulta cliente
+import modelo.Cliente;//
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import static java.util.Objects.hash; //cifrado de contraseña
 import javax.swing.JOptionPane;
+import modelo.hash;//cifrado de contraseña
 
 public class C_Login implements ActionListener {
 
@@ -14,20 +18,25 @@ public class C_Login implements ActionListener {
     private Administrador admin;
     private M_Login m_login;
     private CrearUsuario registroUsuario;
-    
+    private hash cifrado; //
+    private SQL_Cliente clientesql; //
+    private Cliente cli; //
 
-    public C_Login(Login login, M_Login m_login, Administrador admin, CrearUsuario registroUsuario) {
+    public C_Login(Login login, M_Login m_login, Administrador admin, CrearUsuario registroUsuario, hash cifrado, SQL_Cliente clientesql, Cliente cli) {
+       
         this.login = login;
         this.m_login = m_login;
         this.admin = admin;
         this.registroUsuario = registroUsuario;
+        this.cifrado = cifrado;//
+        this.clientesql = clientesql;//
+        this.cli = cli;//
         this.login.jButtonAdmin.addActionListener(this);
         this.login.jButtonRegistroUsuario.addActionListener(this);
         this.login.jButtonExit.addActionListener(this);
         this.registroUsuario.jButtonR_Usuario_Volver.addActionListener(this);
         this.registroUsuario.jButtonCrearUser.addActionListener(this);
         
-
     }
 
     public void iniciarC_Login() {
@@ -70,11 +79,47 @@ public class C_Login implements ActionListener {
             login.setVisible(true);
         } else if (e.getSource() == registroUsuario.jButtonCrearUser){ // BOTON DE CREARUSUARIO --> CREAR USUARIO
              
-            
-            
-            
+          String pass_cliente = new String (registroUsuario.jPasswordClienteCrear.getPassword());
+          
+          String passCon_cliente = new String (registroUsuario.jPasswordConfirmarCliente.getPassword());
+          
+          if (pass_cliente.equals(passCon_cliente)){
+              
+              String nuevoPass = hash.sha1(pass_cliente);
+              
+              cli.setId_cliente(1); //valor por default, pero entonces como agarro los valores de la caja ?
+              
+              cli.setNombres_cliente(registroUsuario.jTextNombresCliente.getText());
+              
+              cli.setContrasena(nuevoPass);
+              
+              cli.setApellidos_cliente(registroUsuario.jTextApellidosCliente.getText());
+              
+             /* cli.setF_naci_cliente(registroUsuario.jComboBoxDiaNacimientoCliente.toString());
+              
+              la fecha de nacimiento no sé como colocarla con exctitud
+              
+              */
+              
+             cli.setCorreo_cliente(registroUsuario.jTextCorreoCliente.getText());
+             
+             if(clientesql.RegistrarCliente(cli)){
+                 
+                JOptionPane.showMessageDialog(null, "Cliente registrado exitosamente");
+                 
+             }else{
+                 
+                 JOptionPane.showMessageDialog(null, "Error al registar al cliente");
+                 
+             }
+             
+             
+          }else{
+              
+              JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden");
+              
+          }
             
         }
     }
-
 }
