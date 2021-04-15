@@ -6,6 +6,7 @@
 package vista;
 
 import java.text.SimpleDateFormat;
+import java.text.DateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
 
@@ -234,12 +235,14 @@ public class InfoRutaBuses extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      /*  
+        /*
         Date fechaRuta = jDateChooser1.getDate();
         
-        SimpleDateFormat formato = new SimpleDateFormat("d/MM/yyyy");
+        DateFormat formato = new SimpleDateFormat("yyyy/MM/dd");
         
-        JOptionPane.showMessageDialog(null, formato.format(fechaRuta.toString())); //te dan la variable en formato date, la pasamos a toString y hacemos un split para poder tomar la dia, fecha y año por separado para poder agregarla a la base de datos.
+        String fecha = formato.format(fechaRuta).toString(); 
+        
+        System.out.println(fecha);
         */
     }//GEN-LAST:event_jButton1ActionPerformed
 
