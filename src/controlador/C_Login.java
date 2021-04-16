@@ -62,7 +62,7 @@ public class C_Login implements ActionListener {
                 admin.setVisible(true);
 
             } else {
-                JOptionPane.showMessageDialog(null, "Usuario y/o contraseña incorrectos.");
+                JOptionPane.showMessageDialog(null, "Usuario y/o contraseña incorrectos.","Información", JOptionPane.WARNING_MESSAGE);
             }
 
         } else if (e.getSource() == login.jButtonRegistroUsuario) {//BOTON DE LOGIN --> CREARUSUARIO
@@ -90,13 +90,13 @@ public class C_Login implements ActionListener {
                     || passCon_cliente.equals("") || registroUsuario.jTextApellidosCliente.getText().equals("")
                     || registroUsuario.jTextCorreoCliente.getText().equals("")) {
 
-                JOptionPane.showMessageDialog(null, "Hay campos vacíos, por favor rellenar todos los campos");
+                JOptionPane.showMessageDialog(null, "Hay campos vacíos, por favor rellenar todos los campos.", "Información", JOptionPane.WARNING_MESSAGE);
 
             } else {
 
                 if (pass_cliente.equals(passCon_cliente)) {
 
-                    if (clientesql.existeUsuario(registroUsuario.jTextApellidosCliente.getText()) == 0) {
+                    if (clientesql.existeUsuario(registroUsuario.jTextIdCliente.getText()) == 0) {
 
                         if (clientesql.esEmail(registroUsuario.jTextCorreoCliente.getText())) {
 
@@ -116,7 +116,7 @@ public class C_Login implements ActionListener {
 
                             if (clientesql.RegistrarCliente(cli)) {
 
-                                JOptionPane.showMessageDialog(null, "Cliente registrado exitosamente");
+                                JOptionPane.showMessageDialog(null, "Cliente registrado exitosamente", "Información", JOptionPane.INFORMATION_MESSAGE);
 
                                 registroUsuario.jPasswordClienteCrear.setText("");
                                 registroUsuario.jPasswordConfirmarCliente.setText("");
@@ -127,22 +127,22 @@ public class C_Login implements ActionListener {
 
                             } else {
 
-                                JOptionPane.showMessageDialog(null, "Error al registar al cliente");
+                                JOptionPane.showMessageDialog(null, "Error al registar al cliente.", "Información", JOptionPane.ERROR_MESSAGE);
                             }
 
                         } else {
 
-                            JOptionPane.showMessageDialog(null, "El correo electronico no es válido");
-                            
+                            JOptionPane.showMessageDialog(null, "El correo electrónico no es válido.", "Información", JOptionPane.WARNING_MESSAGE);
+
                         }
 
                     } else {
 
-                        JOptionPane.showMessageDialog(null, "El usuario ya existe");
+                        JOptionPane.showMessageDialog(null, "La ID ingresada ya está registrada. Por favor, ingrese con otra identificación.", "Información", JOptionPane.WARNING_MESSAGE);
                     }
 
-                    JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden");
-
+                } else {
+                    JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden. Por favor, ingrese nuevamente las contraseñas.", "Información", JOptionPane.WARNING_MESSAGE);
                 }
 
             }

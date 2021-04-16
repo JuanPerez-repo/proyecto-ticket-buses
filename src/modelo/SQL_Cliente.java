@@ -47,7 +47,7 @@ public class SQL_Cliente extends Conexion {
         
     }
     
-     public int existeUsuario (String cliente){
+     public int existeUsuario (String id){
         
         PreparedStatement ps = null;
         
@@ -55,12 +55,12 @@ public class SQL_Cliente extends Conexion {
         
         Connection con = getConexion();
         
-        String sql = "SELECT count(id) FROM clientes WHERE cliente = ?";
+        String sql = "SELECT count(id) FROM cliente WHERE id = ?";
         
         try {
             ps = con.prepareStatement(sql);
             
-            ps.setString(3, cliente);
+            ps.setString(1, id);
             
             rs = ps.executeQuery();
             
@@ -73,6 +73,7 @@ public class SQL_Cliente extends Conexion {
             return 1;
             
         } catch (SQLException ex) {
+            System.err.println("Error la busqueda de una id repetida.");
             Logger.getLogger(SQL_Cliente.class.getName()).log(Level.SEVERE, null, ex);
             
             return 1;
