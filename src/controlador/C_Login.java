@@ -79,58 +79,76 @@ public class C_Login implements ActionListener {
             iniciarC_Login();
             login.setVisible(true);
         } else if (e.getSource() == registroUsuario.jButtonCrearUser) { // BOTON DE CREARUSUARIO --> CREAR USUARIO
-                                
-            String date = (String)registroUsuario.jComboBoxYearNacimientoCliente.getSelectedItem()+"/"+(String)registroUsuario.jComboBoxMesNacimientoCliente.getSelectedItem()+"/"+(String)registroUsuario.jComboBoxDiaNacimientoCliente.getSelectedItem();
-            
+
+            String date = (String) registroUsuario.jComboBoxYearNacimientoCliente.getSelectedItem() + "/" + (String) registroUsuario.jComboBoxMesNacimientoCliente.getSelectedItem() + "/" + (String) registroUsuario.jComboBoxDiaNacimientoCliente.getSelectedItem();
+
             String pass_cliente = new String(registroUsuario.jPasswordClienteCrear.getPassword());
 
             String passCon_cliente = new String(registroUsuario.jPasswordConfirmarCliente.getPassword());
 
-            if (pass_cliente.equals(passCon_cliente)) {
+            if (registroUsuario.jTextNombresCliente.getText().equals("") || registroUsuario.jTextIdCliente.getText().equals("")
+                    || passCon_cliente.equals("") || registroUsuario.jTextApellidosCliente.getText().equals("")
+                    || registroUsuario.jTextCorreoCliente.getText().equals("")) {
 
-                String nuevoPass = hash.sha1(pass_cliente);
-
-                cli.setId_cliente(Integer.parseInt(registroUsuario.jTextIdCliente.getText())); //valor por default, pero entonces como agarro los valores de la caja ?
-
-                cli.setNombres_cliente(registroUsuario.jTextNombresCliente.getText());
-
-                cli.setContrasena(nuevoPass);
-
-                cli.setApellidos_cliente(registroUsuario.jTextApellidosCliente.getText());
-
-                cli.setF_naci_cliente(date);
-               
-                cli.setCorreo_cliente(registroUsuario.jTextCorreoCliente.getText());
-
-                if (clientesql.RegistrarCliente(cli)) {
-
-                    JOptionPane.showMessageDialog(null, "Cliente registrado exitosamente");
-                    
-                    registroUsuario.jPasswordClienteCrear.setText("");
-                    registroUsuario.jPasswordConfirmarCliente.setText("");
-                    registroUsuario.jTextNombresCliente.setText("");
-                    registroUsuario.jTextIdCliente.setText("");
-                    registroUsuario.jTextCorreoCliente.setText("");
-                    registroUsuario.jTextApellidosCliente.setText("");
-
-                } else {
-
-                    JOptionPane.showMessageDialog(null, "Error al registar al cliente");
-
-                }
+                JOptionPane.showMessageDialog(null, "Hay campos vacíos, por favor rellenar todos los campos");
 
             } else {
 
-                JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden");
+                if (pass_cliente.equals(passCon_cliente)) {
+
+                    if (clientesql.existeUsuario(registroUsuario.jTextApellidosCliente.getText()) == 0) {
+
+                        if (clientesql.esEmail(registroUsuario.jTextCorreoCliente.getText())) {
+
+                            String nuevoPass = hash.sha1(pass_cliente);
+
+                            cli.setId_cliente(Integer.parseInt(registroUsuario.jTextIdCliente.getText())); //valor por default, pero entonces como agarro los valores de la caja ?
+
+                            cli.setNombres_cliente(registroUsuario.jTextNombresCliente.getText());
+
+                            cli.setContrasena(nuevoPass);
+
+                            cli.setApellidos_cliente(registroUsuario.jTextApellidosCliente.getText());
+
+                            cli.setF_naci_cliente(date);
+
+                            cli.setCorreo_cliente(registroUsuario.jTextCorreoCliente.getText());
+
+                            if (clientesql.RegistrarCliente(cli)) {
+
+                                JOptionPane.showMessageDialog(null, "Cliente registrado exitosamente");
+
+                                registroUsuario.jPasswordClienteCrear.setText("");
+                                registroUsuario.jPasswordConfirmarCliente.setText("");
+                                registroUsuario.jTextNombresCliente.setText("");
+                                registroUsuario.jTextIdCliente.setText("");
+                                registroUsuario.jTextCorreoCliente.setText("");
+                                registroUsuario.jTextApellidosCliente.setText("");
+
+                            } else {
+
+                                JOptionPane.showMessageDialog(null, "Error al registar al cliente");
+                            }
+
+                        } else {
+
+                            JOptionPane.showMessageDialog(null, "El correo electronico no es válido");
+                            
+                        }
+
+                    } else {
+
+                        JOptionPane.showMessageDialog(null, "El usuario ya existe");
+                    }
+
+                    JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden");
+
+                }
 
             }
 
-        } else if (e.getSource() == login.jButtonUsuario){ // BOTON DE LOGEARSE COMO USUARIO --> LOGIN
-            
-            
-            
-            
-            
+        } else if (e.getSource() == login.jButtonUsuario) { // BOTON DE LOGEARSE COMO USUARIO --> LOGIN
+
         }
     }
 }
