@@ -149,6 +149,33 @@ public class C_Login implements ActionListener {
 
         } else if (e.getSource() == login.jButtonUsuario) { // BOTON DE LOGEARSE COMO USUARIO --> LOGIN
 
+            String pass = new String(login.jPassword.getPassword());
+            
+            if (!login.jTextUsername.getText().equals("") && !pass.equals("")){
+                
+                String nuevoPass = hash.sha1(pass);
+                
+                cli.setId_cliente(Integer.parseInt(login.jTextUsername.getText()));
+                
+                cli.setContrasena(nuevoPass);
+                
+                if(clientesql.login(cli)){
+                    
+                    
+                    
+                }else{
+                   
+                     JOptionPane.showMessageDialog(null, " Error al ingresar "," Datos no encontrados en el sistema ", JOptionPane.ERROR_MESSAGE);
+                    
+                }
+                
+            }else{
+                
+                JOptionPane.showMessageDialog(null, " Por favor, rellenar todos los campos.", "Información", JOptionPane.WARNING_MESSAGE);
+                
+            }
+            
+            
         }
     }
 }

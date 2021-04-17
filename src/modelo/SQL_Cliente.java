@@ -47,7 +47,55 @@ public class SQL_Cliente extends Conexion {
         
     }
     
-     public int existeUsuario (String id){
+     public boolean login (Cliente cliente){
+        
+        PreparedStatement ps = null;
+        
+        ResultSet rs = null;
+        
+        Connection con = getConexion();
+        
+        String sql = "SELECT id, nombres, apellidos, contrasena FROM cliente WHERE id = ?";
+        
+        try {
+            ps = con.prepareStatement(sql);
+            
+            ps.setInt(1, cliente.getId_cliente());
+            
+            rs = ps.executeQuery();
+            
+            if (rs.next()){
+            
+                if(cliente.getContrasena().equals(rs.getString(4))){
+                    
+                    cliente.setId_cliente(rs.getInt(1));
+                    
+                    cliente.setNombres_cliente(rs.getString(2));
+                    
+                    cliente.setApellidos_cliente(rs.getString(3));
+                    
+                    return true;
+                    
+                }else{
+                    
+                    return false;
+                    
+                }
+            
+            }
+            
+            return false;
+            
+        } catch (SQLException ex) {
+            System.err.println("Error la busqueda de una id repetida.");
+            Logger.getLogger(SQL_Cliente.class.getName()).log(Level.SEVERE, null, ex);
+            
+            return false;
+        }
+        
+    }
+    
+    public int existeUsuario (String id){
         
         PreparedStatement ps = null;
         
