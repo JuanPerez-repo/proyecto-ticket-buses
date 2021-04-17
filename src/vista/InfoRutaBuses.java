@@ -242,7 +242,7 @@ public class InfoRutaBuses extends javax.swing.JFrame {
         
         String fecha = formato.format(fechaRuta).toString(); 
         
-        System.out.println(fecha);
+        
         */
     }//GEN-LAST:event_jButton1ActionPerformed
 

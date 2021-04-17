@@ -3,7 +3,11 @@ package controlador;
 import modelo.M_Login;
 import vista.Login;
 import vista.Administrador;
-import vista.CrearUsuario; //En el video 18 el wey lo llama Registro a esta vista.
+import vista.CrearUsuario;
+import vista.Usuario;
+import vista.InfoConductor;
+import vista.InfoBuses;
+import vista.InfoRutaBuses;
 import modelo.SQL_Cliente; //consulta cliente
 import modelo.Cliente;//
 import java.awt.event.ActionEvent;
@@ -21,8 +25,12 @@ public class C_Login implements ActionListener {
     private hash cifrado; //
     private SQL_Cliente clientesql; //
     private Cliente cli; //
+    private Usuario user;
+    private InfoConductor conductor;
+    private InfoBuses buses;
+    private InfoRutaBuses ruta_buses;
 
-    public C_Login(Login login, M_Login m_login, Administrador admin, CrearUsuario registroUsuario, hash cifrado, SQL_Cliente clientesql, Cliente cli) {
+    public C_Login(Login login, M_Login m_login, Administrador admin, CrearUsuario registroUsuario, hash cifrado, SQL_Cliente clientesql, Cliente cli, Usuario user, InfoConductor conductor, InfoBuses buses, InfoRutaBuses ruta_buses) {
 
         this.login = login;
         this.m_login = m_login;
@@ -31,12 +39,21 @@ public class C_Login implements ActionListener {
         this.cifrado = cifrado;//
         this.clientesql = clientesql;//
         this.cli = cli;//
+        this.user = user;
+        this.conductor = conductor;
+        this.buses = buses;
+        this.ruta_buses = ruta_buses;
         this.login.jButtonAdmin.addActionListener(this);
         this.login.jButtonRegistroUsuario.addActionListener(this);
         this.login.jButtonExit.addActionListener(this);
         this.login.jButtonUsuario.addActionListener(this);
         this.registroUsuario.jButtonR_Usuario_Volver.addActionListener(this);
         this.registroUsuario.jButtonCrearUser.addActionListener(this);
+        this.admin.jButtonAdminBus.addActionListener(this);
+        this.admin.jButtonAdminConductor.addActionListener(this);
+        this.admin.jButtonAdminInfoUsers.addActionListener(this);
+        this.admin.jButtonAdminRuta.addActionListener(this);
+        this.admin.jButtonAdminSalir.addActionListener(this);
 
     }
 
@@ -45,9 +62,24 @@ public class C_Login implements ActionListener {
         login.setLocationRelativeTo(null);
     }
 
+    public void iniciarAdmin() {
+        admin.setTitle("Aministrador | Principal");
+        admin.setLocationRelativeTo(null);
+    }
+
     public void iniciarC_RegistroUsuario() {
         registroUsuario.setTitle("Registro de usuario");
         registroUsuario.setLocationRelativeTo(null);
+    }
+
+    public void iniciarUsuario() {
+        user.setTitle("Usuario | Principal");
+        user.setLocationRelativeTo(null);
+    }
+    
+        public void iniciarConductor() {
+        conductor.setTitle("Admin | Agregar - modificar - eliminar información de conductor");
+        conductor.setLocationRelativeTo(null);
     }
 
     public void actionPerformed(ActionEvent e) { //OPCIONES DE TODOS LOS BOTONES DEL PROGRAMA
@@ -59,10 +91,11 @@ public class C_Login implements ActionListener {
 
             if (m_login.IniciarSesion(usuario, pass) == true) {
                 login.setVisible(false);
+                iniciarAdmin();
                 admin.setVisible(true);
 
             } else {
-                JOptionPane.showMessageDialog(null, "Usuario y/o contraseña incorrectos.","Información", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Usuario y/o contraseña incorrectos.", "Información", JOptionPane.WARNING_MESSAGE);
             }
 
         } else if (e.getSource() == login.jButtonRegistroUsuario) {//BOTON DE LOGIN --> CREARUSUARIO
@@ -150,31 +183,39 @@ public class C_Login implements ActionListener {
         } else if (e.getSource() == login.jButtonUsuario) { // BOTON DE LOGEARSE COMO USUARIO --> LOGIN
 
             String pass = new String(login.jPassword.getPassword());
-            
-            if (!login.jTextUsername.getText().equals("") && !pass.equals("")){
-                
+
+            if (!login.jTextUsername.getText().equals("") && !pass.equals("")) {
+
                 String nuevoPass = hash.sha1(pass);
-                
+
                 cli.setId_cliente(Integer.parseInt(login.jTextUsername.getText()));
-                
+
                 cli.setContrasena(nuevoPass);
-                
-                if(clientesql.login(cli)){
-                    
-                    
-                    
-                }else{
-                   
-                     JOptionPane.showMessageDialog(null, " Error al ingresar "," Datos no encontrados en el sistema ", JOptionPane.ERROR_MESSAGE);
-                    
+
+                if (clientesql.login(cli)) { //Cuando se ingresa exitosamente como usuario
+
+                    login.setVisible(false);
+                    iniciarUsuario();
+                    user.setVisible(true);
+                    user.jLabelNombreUser.setText("¡Bienvenido, " + clientesql.obtenerNombreUsuario(cli) + "!");
+
+                } else {
+
+                    JOptionPane.showMessageDialog(null, " Error al ingresar.", "Información", JOptionPane.ERROR_MESSAGE);
+
                 }
-                
-            }else{
-                
+
+            } else {
+
                 JOptionPane.showMessageDialog(null, " Por favor, rellenar todos los campos.", "Información", JOptionPane.WARNING_MESSAGE);
-                
+
             }
+
+        } else if (e.getSource() == admin.jButtonAdminConductor){ //BOTON DE CREAR CONDUCTOR (ADMIN) --> INFOCONDUCTOR
             
+            admin.setVisible(false);
+            iniciarConductor();
+            conductor.setVisible(true);
             
         }
     }
