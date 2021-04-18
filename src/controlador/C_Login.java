@@ -10,8 +10,13 @@ import vista.InfoBuses;
 import vista.InfoRutaBuses;
 import modelo.SQL_Cliente; //consulta cliente
 import modelo.Cliente;//
+import modelo.Conductor;
+import modelo.SQL_Conductor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import static java.util.Objects.hash; //cifrado de contraseña
 import javax.swing.JOptionPane;
 import modelo.hash;//cifrado de contraseña
@@ -29,8 +34,12 @@ public class C_Login implements ActionListener {
     private InfoConductor conductor;
     private InfoBuses buses;
     private InfoRutaBuses ruta_buses;
+    private Conductor cond;
+    private SQL_Conductor conductorsql;
 
-    public C_Login(Login login, M_Login m_login, Administrador admin, CrearUsuario registroUsuario, hash cifrado, SQL_Cliente clientesql, Cliente cli, Usuario user, InfoConductor conductor, InfoBuses buses, InfoRutaBuses ruta_buses) {
+    public C_Login(Login login, M_Login m_login, Administrador admin, CrearUsuario registroUsuario, hash cifrado, 
+            SQL_Cliente clientesql, Cliente cli, Usuario user, InfoConductor conductor, InfoBuses buses, 
+            InfoRutaBuses ruta_buses, Conductor cond, SQL_Conductor conductorsql) {
 
         this.login = login;
         this.m_login = m_login;
@@ -41,6 +50,8 @@ public class C_Login implements ActionListener {
         this.cli = cli;//
         this.user = user;
         this.conductor = conductor;
+        this.cond = cond;
+        this.conductorsql = conductorsql;
         this.buses = buses;
         this.ruta_buses = ruta_buses;
         this.login.jButtonAdmin.addActionListener(this);
@@ -52,6 +63,7 @@ public class C_Login implements ActionListener {
         this.admin.jButtonAdminBus.addActionListener(this);
         this.admin.jButtonAdminConductor.addActionListener(this);
         this.admin.jButtonAdminInfoUsers.addActionListener(this);
+        this.conductor.jButtonAnadirCond.addActionListener(this);
         this.admin.jButtonAdminRuta.addActionListener(this);
         this.admin.jButtonAdminSalir.addActionListener(this);
 
@@ -216,6 +228,38 @@ public class C_Login implements ActionListener {
             admin.setVisible(false);
             iniciarConductor();
             conductor.setVisible(true);
+            
+ 
+        }else if (e.getSource() == conductor.jButtonAnadirCond){ //Botón de añadir a un conductor
+            
+         Date fechaRuta = conductor.jDateChooser_Cond.getDate();
+        
+        DateFormat formato = new SimpleDateFormat("yyyy/MM/dd");
+        
+        String fecha = formato.format(fechaRuta).toString(); 
+            
+            if(conductor.jTextConductor_id.getText().equals("") || conductor.jTextNombres_cond.getText().equals("") 
+                    || conductor.jTextApellidos_cond.getText().equals("") || conductor.jDateChooser_Cond.getCalendar().toString().equals("")){
+                
+                JOptionPane.showMessageDialog(null, "Hay campos vacíos, por favor rellenar todos los campos.", "Información", JOptionPane.WARNING_MESSAGE);
+                
+            }else{
+                
+                cond.setId_cond(Integer.parseInt(conductor.jTextConductor_id.getText()));
+                
+                cond.setNombres_cond(conductor.jTextNombres_cond.getText());
+                
+                cond.setApellios_cond(conductor.jTextApellidos_cond.getText());
+                
+                cond.setF_naci_cond(fecha);
+                
+                if(conductorsql.anadirConductor(cond)){
+                    
+                    JOptionPane.showMessageDialog(null,"Conductor añadido correctamente");
+                    
+                }
+                
+            }
             
         }
     }

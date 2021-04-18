@@ -32,10 +32,10 @@ public class InfoConductor extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
+        jTextConductor_id = new javax.swing.JTextField();
+        jTextNombres_cond = new javax.swing.JTextField();
+        jTextApellidos_cond = new javax.swing.JTextField();
+        jButtonAnadirCond = new javax.swing.JButton();
         jComboBox4 = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
@@ -56,7 +56,7 @@ public class InfoConductor extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jLabel21 = new javax.swing.JLabel();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        jDateChooser_Cond = new com.toedter.calendar.JDateChooser();
         jButton2 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
@@ -83,20 +83,20 @@ public class InfoConductor extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel4.setText("Doc. Identidad");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 59, -1, -1));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 56, 92, -1));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 87, 92, -1));
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 118, 92, -1));
+        getContentPane().add(jTextConductor_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 56, 92, -1));
+        getContentPane().add(jTextNombres_cond, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 87, 92, -1));
+        getContentPane().add(jTextApellidos_cond, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 118, 92, -1));
 
-        jButton3.setBackground(new java.awt.Color(0, 0, 255));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Añadir");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jButtonAnadirCond.setBackground(new java.awt.Color(0, 0, 255));
+        jButtonAnadirCond.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jButtonAnadirCond.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonAnadirCond.setText("Añadir");
+        jButtonAnadirCond.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jButtonAnadirCondActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 242, -1, -1));
+        getContentPane().add(jButtonAnadirCond, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 242, -1, -1));
 
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID Doc Identidad" }));
         getContentPane().add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(385, 56, -1, -1));
@@ -161,6 +161,8 @@ public class InfoConductor extends javax.swing.JFrame {
         jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel21.setText("<html>Fecha de nacimiento</html>");
 
+        jDateChooser_Cond.setDateFormatString("yyyy-MM-d");
+
         jButton2.setBackground(new java.awt.Color(0, 0, 255));
         jButton2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
@@ -212,7 +214,7 @@ public class InfoConductor extends javax.swing.JFrame {
                 .addGap(35, 35, 35)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jDateChooser_Cond, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -263,7 +265,7 @@ public class InfoConductor extends javax.swing.JFrame {
                                     .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGap(112, 112, 112)
-                                .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jDateChooser_Cond, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(146, 146, 146)
                         .addComponent(jLabel19)))
@@ -287,9 +289,9 @@ public class InfoConductor extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jButtonAnadirCondActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnadirCondActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_jButtonAnadirCondActionPerformed
 
     /**
      * @param args the command line arguments
@@ -329,16 +331,16 @@ public class InfoConductor extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    public javax.swing.JButton jButtonAnadirCond;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox8;
     private javax.swing.JComboBox<String> jComboBox9;
     private com.toedter.calendar.JDateChooser jDateChooser1;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
+    public com.toedter.calendar.JDateChooser jDateChooser_Cond;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -358,10 +360,10 @@ public class InfoConductor extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    public javax.swing.JTextField jTextApellidos_cond;
+    public javax.swing.JTextField jTextConductor_id;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
+    public javax.swing.JTextField jTextNombres_cond;
     // End of variables declaration//GEN-END:variables
 }

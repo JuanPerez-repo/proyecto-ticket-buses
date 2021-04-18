@@ -19,9 +19,11 @@ public class ProyectoPerezCastroNarvaez {
         Usuario user = new Usuario();
         InfoConductor conductor = new InfoConductor();
         InfoBuses buses = new InfoBuses();
-        InfoRutaBuses ruta_buses = new InfoRutaBuses();
+        InfoRutaBuses rutaBuses = new InfoRutaBuses();
+        SQL_Conductor modSqlCond = new SQL_Conductor();
+        Conductor modCond = new Conductor();
         
-        C_Login clogin = new C_Login(login, mlogin, admin, rUsuario, hcifrado, modSql, mod, user, conductor, buses, ruta_buses);
+        C_Login clogin = new C_Login(login, mlogin, admin, rUsuario, hcifrado, modSql, mod, user, conductor, buses, rutaBuses, modCond, modSqlCond);
         clogin.iniciarC_Login();
         login.setVisible(true);
         
