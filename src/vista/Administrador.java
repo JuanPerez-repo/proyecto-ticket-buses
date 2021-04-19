@@ -36,11 +36,11 @@ public class Administrador extends javax.swing.JFrame {
         jButtonAdminInfoUsers = new javax.swing.JButton();
         jButtonAdminSalir = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableInfoTodosLosUsuarios = new javax.swing.JTable();
         jButtonAdminHelp = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -86,8 +86,8 @@ public class Administrador extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableInfoTodosLosUsuarios.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTableInfoTodosLosUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -109,8 +109,8 @@ public class Administrador extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(jTable1);
+        jTableInfoTodosLosUsuarios.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(jTableInfoTodosLosUsuarios);
 
         jButtonAdminHelp.setBackground(new java.awt.Color(0, 0, 255));
         jButtonAdminHelp.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -251,6 +251,6 @@ public class Administrador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    public javax.swing.JTable jTable1;
+    public javax.swing.JTable jTableInfoTodosLosUsuarios;
     // End of variables declaration//GEN-END:variables
 }

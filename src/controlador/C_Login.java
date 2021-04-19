@@ -37,8 +37,8 @@ public class C_Login implements ActionListener {
     private Conductor cond;
     private SQL_Conductor conductorsql;
 
-    public C_Login(Login login, M_Login m_login, Administrador admin, CrearUsuario registroUsuario, hash cifrado, 
-            SQL_Cliente clientesql, Cliente cli, Usuario user, InfoConductor conductor, InfoBuses buses, 
+    public C_Login(Login login, M_Login m_login, Administrador admin, CrearUsuario registroUsuario, hash cifrado,
+            SQL_Cliente clientesql, Cliente cli, Usuario user, InfoConductor conductor, InfoBuses buses,
             InfoRutaBuses ruta_buses, Conductor cond, SQL_Conductor conductorsql) {
 
         this.login = login;
@@ -54,6 +54,7 @@ public class C_Login implements ActionListener {
         this.conductorsql = conductorsql;
         this.buses = buses;
         this.ruta_buses = ruta_buses;
+
         this.login.jButtonAdmin.addActionListener(this);
         this.login.jButtonRegistroUsuario.addActionListener(this);
         this.login.jButtonExit.addActionListener(this);
@@ -63,11 +64,38 @@ public class C_Login implements ActionListener {
         this.admin.jButtonAdminBus.addActionListener(this);
         this.admin.jButtonAdminConductor.addActionListener(this);
         this.admin.jButtonAdminInfoUsers.addActionListener(this);
-        this.conductor.jButtonAnadirCond.addActionListener(this);
         this.admin.jButtonAdminRuta.addActionListener(this);
+        this.admin.jButtonAdminHelp.addActionListener(this);
         this.admin.jButtonAdminSalir.addActionListener(this);
+        this.conductor.jButtonAnadirCond.addActionListener(this);
+        this.conductor.jButtonVolverConductor.addActionListener(this);
+        this.conductor.jButtonActualizarTablaConductores.addActionListener(this);
+        this.conductor.jButtonBuscarIDsConductor.addActionListener(this);
+        this.conductor.jButtonEliminarConductor.addActionListener(this);
+        this.conductor.jButtonHelpConductor.addActionListener(this);
+        this.conductor.jButtonVerIDsModificarConductor.addActionListener(this);
+        this.conductor.jButtonModificarInfoConductor.addActionListener(this);
+        this.conductor.jButtonVerIDsEliminarConductor.addActionListener(this);
+        this.user.jButtonLogoutUser.addActionListener(this);
+        this.buses.jButtonAnadirBus.addActionListener(this);
+        this.buses.jButtonEliminarBus.addActionListener(this);
+        this.buses.jButtonHelpBus.addActionListener(this);
+        this.buses.jButtonIDsModificarBus.addActionListener(this);
+        this.buses.jButtonModificarBus.addActionListener(this);
+        this.buses.jButtonTablaBus.addActionListener(this);
+        this.buses.jButtonVerIDsEliminarBus.addActionListener(this);
+        this.buses.jButtonVolverBus.addActionListener(this);
+        this.ruta_buses.jButtonAgregarRutaBus.addActionListener(this);
+        this.ruta_buses.jButtonVolverRutaBuses.addActionListener(this);
 
     }
+
+    private int ventanaLoginAdmin = 0;
+    private int ventanaMainUsuario = 0;
+    private int ventanaConductor = 0;
+    private int ventanaCrearUser = 0;
+    private int ventanaCrearBus = 0;
+    private int ventanaCrearRuta = 0;
 
     public void iniciarC_Login() {
         login.setTitle("Login principal");
@@ -88,10 +116,20 @@ public class C_Login implements ActionListener {
         user.setTitle("Usuario | Principal");
         user.setLocationRelativeTo(null);
     }
-    
-        public void iniciarConductor() {
+
+    public void iniciarConductor() {
         conductor.setTitle("Admin | Agregar - modificar - eliminar información de conductor");
         conductor.setLocationRelativeTo(null);
+    }
+
+    public void iniciarBuses() {
+        buses.setTitle("Admin | Agregar - modificar - eliminar información de los buses");
+        buses.setLocationRelativeTo(null);
+    }
+
+    public void iniciarRuta() {
+        ruta_buses.setTitle("Admin | Agregar rutas de buses");
+        ruta_buses.setLocationRelativeTo(null);
     }
 
     public void actionPerformed(ActionEvent e) { //OPCIONES DE TODOS LOS BOTONES DEL PROGRAMA
@@ -102,8 +140,13 @@ public class C_Login implements ActionListener {
             String pass = new String(login.jPassword.getPassword());
 
             if (m_login.IniciarSesion(usuario, pass) == true) {
+
+                if (ventanaLoginAdmin == 0) {
+                    iniciarAdmin();
+                    ventanaLoginAdmin++;
+                }
+
                 login.setVisible(false);
-                iniciarAdmin();
                 admin.setVisible(true);
 
             } else {
@@ -111,18 +154,22 @@ public class C_Login implements ActionListener {
             }
 
         } else if (e.getSource() == login.jButtonRegistroUsuario) {//BOTON DE LOGIN --> CREARUSUARIO
-            login.setVisible(false);
 
-            iniciarC_RegistroUsuario();
+            if (ventanaCrearUser == 0) {
+                iniciarC_RegistroUsuario();
+                ventanaCrearUser++;
+            }
+
+            login.setVisible(false);
             registroUsuario.setVisible(true);
 
         } else if (e.getSource() == login.jButtonExit) { //BOTON DE LOGIN --> SALIR DEL PROGRAMA
             System.exit(0);
         } else if (e.getSource() == registroUsuario.jButtonR_Usuario_Volver) { // BOTON DE CREARUSUARIO --> LOGIN
-            registroUsuario.setVisible(false);
 
-            iniciarC_Login();
+            registroUsuario.setVisible(false);
             login.setVisible(true);
+
         } else if (e.getSource() == registroUsuario.jButtonCrearUser) { // BOTON DE CREARUSUARIO --> CREAR USUARIO
 
             String date = (String) registroUsuario.jComboBoxYearNacimientoCliente.getSelectedItem() + "/" + (String) registroUsuario.jComboBoxMesNacimientoCliente.getSelectedItem() + "/" + (String) registroUsuario.jComboBoxDiaNacimientoCliente.getSelectedItem();
@@ -206,8 +253,12 @@ public class C_Login implements ActionListener {
 
                 if (clientesql.login(cli)) { //Cuando se ingresa exitosamente como usuario
 
+                    if (ventanaMainUsuario == 0) {
+                        iniciarUsuario();
+                        ventanaMainUsuario++;
+                    }
+
                     login.setVisible(false);
-                    iniciarUsuario();
                     user.setVisible(true);
                     user.jLabelNombreUser.setText("¡Bienvenido, " + clientesql.obtenerNombreUsuario(cli) + "!");
 
@@ -223,44 +274,128 @@ public class C_Login implements ActionListener {
 
             }
 
-        } else if (e.getSource() == admin.jButtonAdminConductor){ //BOTON DE CREAR CONDUCTOR (ADMIN) --> INFOCONDUCTOR
-            
-            admin.setVisible(false);
-            iniciarConductor();
-            conductor.setVisible(true);
-            
- 
-        }else if (e.getSource() == conductor.jButtonAnadirCond){ //Botón de añadir a un conductor
-            
-         Date fechaRuta = conductor.jDateChooser_Cond.getDate();
-        
-        DateFormat formato = new SimpleDateFormat("yyyy/MM/dd");
-        
-        String fecha = formato.format(fechaRuta).toString(); 
-            
-            if(conductor.jTextConductor_id.getText().equals("") || conductor.jTextNombres_cond.getText().equals("") 
-                    || conductor.jTextApellidos_cond.getText().equals("") || conductor.jDateChooser_Cond.getCalendar().toString().equals("")){
-                
-                JOptionPane.showMessageDialog(null, "Hay campos vacíos, por favor rellenar todos los campos.", "Información", JOptionPane.WARNING_MESSAGE);
-                
-            }else{
-                
-                cond.setId_cond(Integer.parseInt(conductor.jTextConductor_id.getText()));
-                
-                cond.setNombres_cond(conductor.jTextNombres_cond.getText());
-                
-                cond.setApellios_cond(conductor.jTextApellidos_cond.getText());
-                
-                cond.setF_naci_cond(fecha);
-                
-                if(conductorsql.anadirConductor(cond)){
-                    
-                    JOptionPane.showMessageDialog(null,"Conductor añadido correctamente");
-                    
-                }
-                
+        } else if (e.getSource() == user.jButtonLogoutUser) { //LOGOUT USUARIO (Usuario)
+
+            user.setVisible(false);
+            login.setVisible(true);
+
+        } else if (e.getSource() == admin.jButtonAdminConductor) { //BOTON DE CREAR CONDUCTOR (ADMIN) --> INFOCONDUCTOR
+
+            if (ventanaConductor == 0) {
+                iniciarConductor();
+                ventanaConductor++;
             }
+
+            admin.setVisible(false);
+            conductor.setVisible(true);
+
+        } else if (e.getSource() == admin.jButtonAdminBus) { //BOTON DE BUS (Administrador)
+
+            if (ventanaCrearBus == 0) {
+                iniciarBuses();
+                ventanaCrearBus++;
+            }
+
+            admin.setVisible(false);
+            buses.setVisible(true);
+
+        } else if (e.getSource() == admin.jButtonAdminHelp) { //joptionpane DE AYUDA PARA EL ADMIN (Administrador)
+
+        } else if (e.getSource() == admin.jButtonAdminInfoUsers) { //BOTON PARA LLENAR LA TABLA CON TODOS LOS USUARIOS DENTRO DE LA BD (Administrador)
+
+        } else if (e.getSource() == admin.jButtonAdminRuta) { //BOTON PARA AGREGAR RUTAS DE LOS BUSES (Administrador)
+
+            if (ventanaCrearRuta == 0) {
+                iniciarRuta();
+                ventanaCrearRuta++;
+            }
+
+            admin.setVisible(false);
+            ruta_buses.setVisible(true);
+
+        } else if (e.getSource() == admin.jButtonAdminSalir) { //SALIR DE ADMIN PARA REGRESAR AL LOGIN
+
+            admin.setVisible(false);
+            login.setVisible(true);
+
+        } else if (e.getSource() == conductor.jButtonAnadirCond) { //Botón de añadir a un conductor
+
+            Date fechaConductor = conductor.jDateConductor.getDate();
+
+            DateFormat formato = new SimpleDateFormat("yyyy/MM/dd");
+
+            String DateDriver = formato.format(fechaConductor).toString();
+
+            if (conductor.jTextConductor_id.getText().equals("") || conductor.jTextNombres_cond.getText().equals("")
+                    || conductor.jTextApellidos_cond.getText().equals("") || conductor.jDateConductor.getCalendar().toString().equals("")) {
+
+                JOptionPane.showMessageDialog(null, "Hay campos vacíos, por favor rellenar todos los campos.", "Información", JOptionPane.WARNING_MESSAGE);
+
+            } else {
+
+                cond.setId_cond(Integer.parseInt(conductor.jTextConductor_id.getText()));
+
+                cond.setNombres_cond(conductor.jTextNombres_cond.getText());
+
+                cond.setApellios_cond(conductor.jTextApellidos_cond.getText());
+
+                cond.setF_naci_cond(DateDriver);
+
+                if (conductorsql.anadirConductor(cond)) {
+
+                    JOptionPane.showMessageDialog(null, "El conductor fue agregado a la base de datos de manera exitosa.");
+
+                }
+
+            }
+
+        } else if (e.getSource() == conductor.jButtonVolverConductor) { //BOTON DE VOLVER DE CONDUCTOR A VENTANA PRINCIPAL DE ADMIN
+
+            conductor.setVisible(false);
+            admin.setVisible(true);
+
+        } else if (e.getSource() == conductor.jButtonActualizarTablaConductores) { //ACTUALIZAR TABLA DE CONDUCTORES (InfoConductor)
+
+        } else if (e.getSource() == conductor.jButtonBuscarIDsConductor) { //BUSCAR INFO POR LA ID DE UN CONDUCTOR (InfoConductor)
+
+            conductor.jButtonModificarInfoConductor.setEnabled(true);
             
+        } else if (e.getSource() == conductor.jButtonEliminarConductor) { //ELIMINA UN CONDUCTOR DE LA BD (InfoConductor)
+
+        } else if (e.getSource() == conductor.jButtonHelpConductor) { //AYUDA PARA EL ADMIN EN LA INTERFAZ DE INFOCONDUCTOR
+
+        } else if (e.getSource() == conductor.jButtonVerIDsModificarConductor) { //MUESTRA LAS IDS DE LOS CONDUCTORES EN EL COMBOBOX PARA MODIFICAR LUEGO (InfoConductor)
+
+            conductor.jComboBuscarID.setEnabled(true);
+            conductor.jButtonBuscarIDsConductor.setEnabled(true);
+            
+        } else if (e.getSource() == conductor.jButtonVerIDsEliminarConductor) { //MUESTRA LAS IDS DE LOS CONDUCTORES EN EL COMBOBOX PARA ELIMINAR LUEGO (InfoConductor)
+
+        } else if (e.getSource() == buses.jButtonAnadirBus) {
+
+        } else if (e.getSource() == buses.jButtonEliminarBus) {
+
+        } else if (e.getSource() == buses.jButtonHelpBus) {
+
+        } else if (e.getSource() == buses.jButtonIDsModificarBus) {
+
+        } else if (e.getSource() == buses.jButtonModificarBus) {
+
+        } else if (e.getSource() == buses.jButtonVolverBus) {
+
+            buses.setVisible(false);
+            admin.setVisible(true);
+
+        } else if (e.getSource() == buses.jButtonVerIDsEliminarBus) {
+
+        } else if (e.getSource() == ruta_buses.jButtonAgregarRutaBus) {
+
+        } else if (e.getSource() == ruta_buses.jButtonVolverRutaBuses) {
+
+            ruta_buses.setVisible(false);
+            admin.setVisible(true);
+
         }
+
     }
 }

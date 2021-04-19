@@ -36,32 +36,31 @@ public class InfoConductor extends javax.swing.JFrame {
         jTextNombres_cond = new javax.swing.JTextField();
         jTextApellidos_cond = new javax.swing.JTextField();
         jButtonAnadirCond = new javax.swing.JButton();
-        jComboBox4 = new javax.swing.JComboBox<>();
-        jLabel9 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
+        jComboBuscarID = new javax.swing.JComboBox<>();
+        jButtonBuscarIDsConductor = new javax.swing.JButton();
+        jButtonVerIDsEliminarConductor = new javax.swing.JButton();
+        jTextModificarNombreConductor = new javax.swing.JTextField();
+        jTextModificarApellidoConductor = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jComboBox9 = new javax.swing.JComboBox<>();
-        jButton6 = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
+        jComboEliminarID = new javax.swing.JComboBox<>();
+        jButtonEliminarConductor = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableInfoConductor = new javax.swing.JTable();
+        jButtonActualizarTablaConductores = new javax.swing.JButton();
+        jButtonHelpConductor = new javax.swing.JButton();
+        jDateConductor = new com.toedter.calendar.JDateChooser();
+        jLabel5 = new javax.swing.JLabel();
+        jDateModificarConductor = new com.toedter.calendar.JDateChooser();
+        jLabel21 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
+        jButtonVolverConductor = new javax.swing.JButton();
+        jButtonModificarInfoConductor = new javax.swing.JButton();
+        jButtonVerIDsModificarConductor = new javax.swing.JButton();
         jLabel20 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jLabel21 = new javax.swing.JLabel();
-        jDateChooser_Cond = new com.toedter.calendar.JDateChooser();
-        jButton2 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jLabel18 = new javax.swing.JLabel();
 
         jLabel16.setText("Buscar por Doc. Identidad:");
@@ -72,113 +71,92 @@ public class InfoConductor extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nombres");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 90, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Apellidos");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 121, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel4.setText("Doc. Identidad");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 59, -1, -1));
-        getContentPane().add(jTextConductor_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 56, 92, -1));
-        getContentPane().add(jTextNombres_cond, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 87, 92, -1));
-        getContentPane().add(jTextApellidos_cond, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 118, 92, -1));
+        jLabel4.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("<html>Documento de Identidad</html>");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 110, 60));
+        getContentPane().add(jTextConductor_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 110, -1));
 
-        jButtonAnadirCond.setBackground(new java.awt.Color(0, 0, 255));
+        jTextNombres_cond.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextNombres_condActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextNombres_cond, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 110, -1));
+        getContentPane().add(jTextApellidos_cond, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 110, -1));
+
+        jButtonAnadirCond.setBackground(new java.awt.Color(204, 204, 255));
         jButtonAnadirCond.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jButtonAnadirCond.setForeground(new java.awt.Color(255, 255, 255));
         jButtonAnadirCond.setText("Añadir");
         jButtonAnadirCond.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAnadirCondActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonAnadirCond, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 242, -1, -1));
+        getContentPane().add(jButtonAnadirCond, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 100, 40));
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID Doc Identidad" }));
-        getContentPane().add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(385, 56, -1, -1));
+        jComboBuscarID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID Doc Identidad" }));
+        jComboBuscarID.setEnabled(false);
+        getContentPane().add(jComboBuscarID, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 110, 110, -1));
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel9.setText("Buscar por Doc. Identidad:");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(246, 59, -1, -1));
+        jButtonBuscarIDsConductor.setBackground(new java.awt.Color(204, 204, 255));
+        jButtonBuscarIDsConductor.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jButtonBuscarIDsConductor.setText("Buscar");
+        jButtonBuscarIDsConductor.setEnabled(false);
+        getContentPane().add(jButtonBuscarIDsConductor, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 110, 120, 30));
 
-        jButton4.setBackground(new java.awt.Color(0, 0, 255));
-        jButton4.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("Buscar");
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 87, -1, -1));
+        jButtonVerIDsEliminarConductor.setBackground(new java.awt.Color(204, 204, 255));
+        jButtonVerIDsEliminarConductor.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jButtonVerIDsEliminarConductor.setText("Ver IDs");
+        getContentPane().add(jButtonVerIDsEliminarConductor, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 170, 90, 40));
 
-        jButton5.setBackground(new java.awt.Color(0, 0, 255));
-        jButton5.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Modificar información");
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(329, 242, -1, -1));
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(298, 88, 106, -1));
-        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(298, 121, 106, -1));
+        jTextModificarNombreConductor.setEnabled(false);
+        getContentPane().add(jTextModificarNombreConductor, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 150, 120, -1));
 
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jTextModificarApellidoConductor.setEnabled(false);
+        getContentPane().add(jTextModificarApellidoConductor, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 190, 120, -1));
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Nombres");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(246, 91, -1, -1));
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, -1, -1));
 
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Apellidos");
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(246, 124, -1, -1));
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 190, -1, 30));
 
-        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Eliminar conductor:");
-        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(532, 25, -1, -1));
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 50, -1, -1));
 
-        jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("Buscar por Doc. Identidad:");
-        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(532, 57, -1, -1));
+        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 90, -1, -1));
 
-        jComboBox9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID Doc Identidad" }));
-        getContentPane().add(jComboBox9, new org.netbeans.lib.awtextra.AbsoluteConstraints(532, 89, 129, -1));
+        jComboEliminarID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID Doc Identidad" }));
+        jComboEliminarID.setEnabled(false);
+        getContentPane().add(jComboEliminarID, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 130, 160, -1));
 
-        jButton6.setBackground(new java.awt.Color(0, 0, 255));
-        jButton6.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("Eliminar");
-        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(565, 127, -1, -1));
+        jButtonEliminarConductor.setBackground(new java.awt.Color(204, 204, 255));
+        jButtonEliminarConductor.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jButtonEliminarConductor.setText("Eliminar");
+        jButtonEliminarConductor.setEnabled(false);
+        getContentPane().add(jButtonEliminarConductor, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 170, 110, 40));
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel1.setText("Añadir conductor:");
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel8.setText("Modificar información de conductor:");
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel5.setText("<html>Fecha de nacimiento</html>");
-
-        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Captura2.PNG"))); // NOI18N
-        jLabel20.setText("jLabel20");
-
-        jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel21.setText("<html>Fecha de nacimiento</html>");
-
-        jDateChooser_Cond.setDateFormatString("yyyy-MM-d");
-
-        jButton2.setBackground(new java.awt.Color(0, 0, 255));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Actualizar tabla");
-
-        jButton7.setBackground(new java.awt.Color(0, 0, 255));
-        jButton7.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(255, 255, 255));
-        jButton7.setText("Ayuda");
-
-        jButton1.setBackground(new java.awt.Color(0, 0, 255));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Volver");
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableInfoConductor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -204,87 +182,74 @@ public class InfoConductor extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTableInfoConductor);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jDateChooser_Cond, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel19)
-                .addGap(174, 174, 174))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jButton2)
-                .addGap(32, 32, 32)
-                .addComponent(jButton7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(48, 48, 48))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1)
-                        .addGap(52, 52, 52)
-                        .addComponent(jLabel8))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 668, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(68, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(78, 78, 78))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel8))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(102, 102, 102)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGap(112, 112, 112)
-                                .addComponent(jDateChooser_Cond, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(146, 146, 146)
-                        .addComponent(jLabel19)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel20)
-                .addGap(32, 32, 32)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton7)
-                    .addComponent(jButton1))
-                .addContainerGap())
-        );
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 370, 668, 94));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 790, 480));
+        jButtonActualizarTablaConductores.setBackground(new java.awt.Color(204, 204, 255));
+        jButtonActualizarTablaConductores.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jButtonActualizarTablaConductores.setText("Actualizar tabla");
+        getContentPane().add(jButtonActualizarTablaConductores, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 490, 150, 40));
+
+        jButtonHelpConductor.setBackground(new java.awt.Color(204, 204, 255));
+        jButtonHelpConductor.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButtonHelpConductor.setText("Ayuda");
+        jButtonHelpConductor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonHelpConductorActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonHelpConductor, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 490, 100, 40));
+
+        jDateConductor.setDateFormatString("yyyy-MM-d");
+        getContentPane().add(jDateConductor, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 110, -1));
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("<html>Fecha de nacimiento</html>");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 100, 60));
+
+        jDateModificarConductor.setEnabled(false);
+        getContentPane().add(jDateModificarConductor, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 240, 120, -1));
+
+        jLabel21.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel21.setText("<html>Fecha de nacimiento</html>");
+        getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 230, 90, 50));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Añadir conductor:");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("<html><center>Modificar información de un conductor:</center></html>");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, 280, 90));
+
+        jButtonVolverConductor.setBackground(new java.awt.Color(204, 204, 255));
+        jButtonVolverConductor.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jButtonVolverConductor.setText("Volver");
+        getContentPane().add(jButtonVolverConductor, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 490, 100, 40));
+
+        jButtonModificarInfoConductor.setBackground(new java.awt.Color(204, 204, 255));
+        jButtonModificarInfoConductor.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jButtonModificarInfoConductor.setText("Modificar información");
+        jButtonModificarInfoConductor.setEnabled(false);
+        getContentPane().add(jButtonModificarInfoConductor, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 300, 160, 40));
+
+        jButtonVerIDsModificarConductor.setBackground(new java.awt.Color(204, 204, 255));
+        jButtonVerIDsModificarConductor.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jButtonVerIDsModificarConductor.setText("Ver IDs");
+        getContentPane().add(jButtonVerIDsModificarConductor, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 300, 90, 40));
+
+        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Captura2.PNG"))); // NOI18N
+        jLabel20.setText("jLabel20");
+        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 230, 120, 120));
 
         jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/3e11d0b4-01f7-4495-b1fc-1eea5bfc8a14.jpg"))); // NOI18N
-        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 530));
+        jLabel18.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 860, 550));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -292,6 +257,14 @@ public class InfoConductor extends javax.swing.JFrame {
     private void jButtonAnadirCondActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnadirCondActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonAnadirCondActionPerformed
+
+    private void jTextNombres_condActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextNombres_condActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextNombres_condActionPerformed
+
+    private void jButtonHelpConductorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHelpConductorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonHelpConductorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -329,18 +302,20 @@ public class InfoConductor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
+    public javax.swing.JButton jButtonActualizarTablaConductores;
     public javax.swing.JButton jButtonAnadirCond;
-    private javax.swing.JComboBox<String> jComboBox4;
+    public javax.swing.JButton jButtonBuscarIDsConductor;
+    public javax.swing.JButton jButtonEliminarConductor;
+    public javax.swing.JButton jButtonHelpConductor;
+    public javax.swing.JButton jButtonModificarInfoConductor;
+    public javax.swing.JButton jButtonVerIDsEliminarConductor;
+    public javax.swing.JButton jButtonVerIDsModificarConductor;
+    public javax.swing.JButton jButtonVolverConductor;
     private javax.swing.JComboBox<String> jComboBox8;
-    private javax.swing.JComboBox<String> jComboBox9;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    public com.toedter.calendar.JDateChooser jDateChooser_Cond;
+    public javax.swing.JComboBox<String> jComboBuscarID;
+    public javax.swing.JComboBox<String> jComboEliminarID;
+    public com.toedter.calendar.JDateChooser jDateConductor;
+    public com.toedter.calendar.JDateChooser jDateModificarConductor;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -348,7 +323,6 @@ public class InfoConductor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
@@ -356,14 +330,12 @@ public class InfoConductor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    public javax.swing.JTable jTableInfoConductor;
     public javax.swing.JTextField jTextApellidos_cond;
     public javax.swing.JTextField jTextConductor_id;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    public javax.swing.JTextField jTextModificarApellidoConductor;
+    public javax.swing.JTextField jTextModificarNombreConductor;
     public javax.swing.JTextField jTextNombres_cond;
     // End of variables declaration//GEN-END:variables
 }
