@@ -8,6 +8,7 @@ import vista.Usuario;
 import vista.InfoConductor;
 import vista.InfoBuses;
 import vista.InfoRutaBuses;
+import vista.ComprarTicketBus;
 import modelo.SQL_Cliente; //consulta cliente
 import modelo.Cliente;//
 import modelo.Conductor;
@@ -36,10 +37,11 @@ public class C_Login implements ActionListener {
     private InfoRutaBuses ruta_buses;
     private Conductor cond;
     private SQL_Conductor conductorsql;
+    private ComprarTicketBus cTB;
 
     public C_Login(Login login, M_Login m_login, Administrador admin, CrearUsuario registroUsuario, hash cifrado,
             SQL_Cliente clientesql, Cliente cli, Usuario user, InfoConductor conductor, InfoBuses buses,
-            InfoRutaBuses ruta_buses, Conductor cond, SQL_Conductor conductorsql) {
+            InfoRutaBuses ruta_buses, Conductor cond, SQL_Conductor conductorsql, ComprarTicketBus cTB) {
 
         this.login = login;
         this.m_login = m_login;
@@ -54,6 +56,7 @@ public class C_Login implements ActionListener {
         this.conductorsql = conductorsql;
         this.buses = buses;
         this.ruta_buses = ruta_buses;
+        this.cTB = cTB; //Vista Comprar Ticket Bus
 
         this.login.jButtonAdmin.addActionListener(this);
         this.login.jButtonRegistroUsuario.addActionListener(this);
@@ -77,6 +80,8 @@ public class C_Login implements ActionListener {
         this.conductor.jButtonModificarInfoConductor.addActionListener(this);
         this.conductor.jButtonVerIDsEliminarConductor.addActionListener(this);
         this.user.jButtonLogoutUser.addActionListener(this);
+        this.user.jButtonReservarViaje.addActionListener(this);
+        this.user.jButtonUserVerViajes.addActionListener(this);
         this.buses.jButtonAnadirBus.addActionListener(this);
         this.buses.jButtonEliminarBus.addActionListener(this);
         this.buses.jButtonHelpBus.addActionListener(this);
@@ -87,6 +92,9 @@ public class C_Login implements ActionListener {
         this.buses.jButtonVolverBus.addActionListener(this);
         this.ruta_buses.jButtonAgregarRutaBus.addActionListener(this);
         this.ruta_buses.jButtonVolverRutaBuses.addActionListener(this);
+        this.cTB.jButtonCTB_Viajes.addActionListener(this);
+        this.cTB.jButtonCTB_ReservarTicket.addActionListener(this);
+        this.cTB.jButtonCTB_Volver.addActionListener(this);
 
     }
 
@@ -96,6 +104,7 @@ public class C_Login implements ActionListener {
     private int ventanaCrearUser = 0;
     private int ventanaCrearBus = 0;
     private int ventanaCrearRuta = 0;
+    private int ventanaCTB = 0;
 
     public void iniciarC_Login() {
         login.setTitle("Login principal");
@@ -130,6 +139,11 @@ public class C_Login implements ActionListener {
     public void iniciarRuta() {
         ruta_buses.setTitle("Admin | Agregar rutas de buses");
         ruta_buses.setLocationRelativeTo(null);
+    }
+
+    public void iniciarCTB() {
+        cTB.setTitle("Usuario | Reservar ticket");
+        cTB.setLocationRelativeTo(null);
     }
 
     public void actionPerformed(ActionEvent e) { //OPCIONES DE TODOS LOS BOTONES DEL PROGRAMA
@@ -277,7 +291,21 @@ public class C_Login implements ActionListener {
         } else if (e.getSource() == user.jButtonLogoutUser) { //LOGOUT USUARIO (Usuario)
 
             user.setVisible(false);
+            login.jTextUsername.setText("");
+            login.jPassword.setText("");
             login.setVisible(true);
+
+        } else if (e.getSource() == user.jButtonReservarViaje) {//BOTON COMPRAR TICKET BUS (Usuario)
+
+            if (ventanaCTB == 0) {
+                iniciarCTB();
+                ventanaCTB++;
+            }
+
+            user.setVisible(false);
+            cTB.setVisible(true);
+
+        } else if (e.getSource() == user.jButtonUserVerViajes) {//VER PROXIMOS VIAJES (Usuario)
 
         } else if (e.getSource() == admin.jButtonAdminConductor) { //BOTON DE CREAR CONDUCTOR (ADMIN) --> INFOCONDUCTOR
 
@@ -359,7 +387,7 @@ public class C_Login implements ActionListener {
         } else if (e.getSource() == conductor.jButtonBuscarIDsConductor) { //BUSCAR INFO POR LA ID DE UN CONDUCTOR (InfoConductor)
 
             conductor.jButtonModificarInfoConductor.setEnabled(true);
-            
+
         } else if (e.getSource() == conductor.jButtonEliminarConductor) { //ELIMINA UN CONDUCTOR DE LA BD (InfoConductor)
 
         } else if (e.getSource() == conductor.jButtonHelpConductor) { //AYUDA PARA EL ADMIN EN LA INTERFAZ DE INFOCONDUCTOR
@@ -368,7 +396,7 @@ public class C_Login implements ActionListener {
 
             conductor.jComboBuscarID.setEnabled(true);
             conductor.jButtonBuscarIDsConductor.setEnabled(true);
-            
+
         } else if (e.getSource() == conductor.jButtonVerIDsEliminarConductor) { //MUESTRA LAS IDS DE LOS CONDUCTORES EN EL COMBOBOX PARA ELIMINAR LUEGO (InfoConductor)
 
         } else if (e.getSource() == buses.jButtonAnadirBus) {
@@ -395,6 +423,15 @@ public class C_Login implements ActionListener {
             ruta_buses.setVisible(false);
             admin.setVisible(true);
 
+        } else if (e.getSource() == cTB.jButtonCTB_Viajes) {
+
+        } else if (e.getSource() == cTB.jButtonCTB_ReservarTicket) {
+
+        } else if (e.getSource() == cTB.jButtonCTB_Volver) {
+            
+            cTB.setVisible(false);
+            user.setVisible(true);
+            
         }
 
     }

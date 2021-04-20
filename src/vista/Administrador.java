@@ -51,11 +51,11 @@ public class Administrador extends javax.swing.JFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Captura3.PNG"))); // NOI18N
 
-        jButtonAdminConductor.setBackground(new java.awt.Color(0, 0, 255));
+        jButtonAdminConductor.setBackground(new java.awt.Color(204, 204, 255));
         jButtonAdminConductor.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jButtonAdminConductor.setText("Agregar o quitar conductor");
 
-        jButtonAdminBus.setBackground(new java.awt.Color(0, 0, 255));
+        jButtonAdminBus.setBackground(new java.awt.Color(204, 204, 255));
         jButtonAdminBus.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jButtonAdminBus.setText("Agregar o quitar bus");
         jButtonAdminBus.addActionListener(new java.awt.event.ActionListener() {
@@ -64,11 +64,11 @@ public class Administrador extends javax.swing.JFrame {
             }
         });
 
-        jButtonAdminRuta.setBackground(new java.awt.Color(0, 0, 255));
+        jButtonAdminRuta.setBackground(new java.awt.Color(204, 204, 255));
         jButtonAdminRuta.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jButtonAdminRuta.setText("Agregar o quitar ruta de bus");
 
-        jButtonAdminInfoUsers.setBackground(new java.awt.Color(0, 0, 255));
+        jButtonAdminInfoUsers.setBackground(new java.awt.Color(204, 204, 255));
         jButtonAdminInfoUsers.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jButtonAdminInfoUsers.setText("Ver informacion de los usuarios");
         jButtonAdminInfoUsers.addActionListener(new java.awt.event.ActionListener() {
@@ -77,7 +77,7 @@ public class Administrador extends javax.swing.JFrame {
             }
         });
 
-        jButtonAdminSalir.setBackground(new java.awt.Color(0, 0, 255));
+        jButtonAdminSalir.setBackground(new java.awt.Color(204, 204, 255));
         jButtonAdminSalir.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jButtonAdminSalir.setText("Cerrar sesión");
         jButtonAdminSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -112,7 +112,7 @@ public class Administrador extends javax.swing.JFrame {
         jTableInfoTodosLosUsuarios.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTableInfoTodosLosUsuarios);
 
-        jButtonAdminHelp.setBackground(new java.awt.Color(0, 0, 255));
+        jButtonAdminHelp.setBackground(new java.awt.Color(204, 204, 255));
         jButtonAdminHelp.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jButtonAdminHelp.setText("Ayuda");
         jButtonAdminHelp.addActionListener(new java.awt.event.ActionListener() {

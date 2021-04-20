@@ -32,6 +32,7 @@ public class Usuario extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabelNombreUser = new javax.swing.JLabel();
+        jButtonUserVerViajes = new javax.swing.JButton();
         jButtonLogoutUser = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
@@ -44,16 +45,20 @@ public class Usuario extends javax.swing.JFrame {
                 jButtonReservarViajeActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonReservarViaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, 160, -1));
+        getContentPane().add(jButtonReservarViaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 400, 160, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/a199cae2-ada7-442a-a926-eaff34092564.jpg"))); // NOI18N
         jLabel4.setText("jLabel4");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
         jLabel2.setText("Actualmente no tiene ningún asiento comprado.");
 
         jLabelNombreUser.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabelNombreUser.setText("¡Bienvenido, usuario!");
+
+        jButtonUserVerViajes.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButtonUserVerViajes.setText("Ver mis viajes pendientes");
+        jButtonUserVerViajes.setEnabled(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -62,36 +67,44 @@ public class Usuario extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(jLabel2))
+                        .addGap(182, 182, 182)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(123, 123, 123)
-                        .addComponent(jLabelNombreUser))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(138, 138, 138)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(52, Short.MAX_VALUE))
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel2)))
+                .addContainerGap(49, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButtonUserVerViajes)
+                        .addGap(105, 105, 105))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabelNombreUser)
+                        .addGap(155, 155, 155))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(24, 24, 24)
                 .addComponent(jLabelNombreUser)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46))
+                .addGap(18, 18, 18)
+                .addComponent(jButtonUserVerViajes)
+                .addGap(39, 39, 39))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 390, 310));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 460, 350));
 
         jButtonLogoutUser.setText("Cerrar Sesión");
-        getContentPane().add(jButtonLogoutUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 390, 160, -1));
+        getContentPane().add(jButtonLogoutUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 400, 160, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/3e11d0b4-01f7-4495-b1fc-1eea5bfc8a14.jpg"))); // NOI18N
         jLabel3.setText("jLabel3");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 430));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 460));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -138,6 +151,7 @@ public class Usuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton jButtonLogoutUser;
     public javax.swing.JButton jButtonReservarViaje;
+    public javax.swing.JButton jButtonUserVerViajes;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
