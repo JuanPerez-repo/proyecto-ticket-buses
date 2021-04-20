@@ -13,6 +13,8 @@ import modelo.SQL_Cliente; //consulta cliente
 import modelo.Cliente;//
 import modelo.Conductor;
 import modelo.SQL_Conductor;
+import modelo.Buses;
+import modelo.SQL_Buses;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DateFormat;
@@ -38,10 +40,13 @@ public class C_Login implements ActionListener {
     private Conductor cond;
     private SQL_Conductor conductorsql;
     private ComprarTicketBus cTB;
+    private Buses bus;
+    private SQL_Buses busql;
 
     public C_Login(Login login, M_Login m_login, Administrador admin, CrearUsuario registroUsuario, hash cifrado,
             SQL_Cliente clientesql, Cliente cli, Usuario user, InfoConductor conductor, InfoBuses buses,
-            InfoRutaBuses ruta_buses, Conductor cond, SQL_Conductor conductorsql, ComprarTicketBus cTB) {
+            InfoRutaBuses ruta_buses, Conductor cond, SQL_Conductor conductorsql, ComprarTicketBus cTB,
+            Buses bus, SQL_Buses busql) {
 
         this.login = login;
         this.m_login = m_login;
@@ -57,7 +62,9 @@ public class C_Login implements ActionListener {
         this.buses = buses;
         this.ruta_buses = ruta_buses;
         this.cTB = cTB; //Vista Comprar Ticket Bus
-
+        this.bus = bus;
+        this.busql = busql;
+        
         this.login.jButtonAdmin.addActionListener(this);
         this.login.jButtonRegistroUsuario.addActionListener(this);
         this.login.jButtonExit.addActionListener(this);
@@ -401,6 +408,25 @@ public class C_Login implements ActionListener {
 
         } else if (e.getSource() == buses.jButtonAnadirBus) {
 
+            if(buses.jTextNumBus.getText().equals("") || buses.jTextPlaca.getText().equals("")){
+                
+                 JOptionPane.showMessageDialog(null, "Hay campos vacíos, por favor rellenar todos los campos.", "Error al añadir", JOptionPane.WARNING_MESSAGE);
+                
+            }else{
+                
+                bus.setId_bus(Integer.parseInt(buses.jTextNumBus.getText()));
+                
+                bus.setModelo_bus((String)buses.jComboBoxModeloBus.getSelectedItem());//sin probar aun (20-04-2021)
+                
+                bus.setPlaca_bus(buses.jTextPlaca.getText());
+                
+                if(busql.anadirBus(bus)){
+                    
+                     JOptionPane.showMessageDialog(null, "El autobus fue añadido exitosamente.");
+
+                }
+            }
+            
         } else if (e.getSource() == buses.jButtonEliminarBus) {
 
         } else if (e.getSource() == buses.jButtonHelpBus) {

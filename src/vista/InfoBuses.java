@@ -38,9 +38,9 @@ public class InfoBuses extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jTextField4 = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jTextNumBus = new javax.swing.JTextField();
+        jTextPlaca = new javax.swing.JTextField();
+        jComboBoxModeloBus = new javax.swing.JComboBox<>();
         jComboBox9 = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox<>();
@@ -117,15 +117,15 @@ public class InfoBuses extends javax.swing.JFrame {
         jLabel12.setText("Placa de bus:");
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(258, 95, 90, -1));
 
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(127, 58, 92, -1));
+        jTextNumBus.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        getContentPane().add(jTextNumBus, new org.netbeans.lib.awtextra.AbsoluteConstraints(127, 58, 92, -1));
 
-        jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(127, 91, 92, -1));
+        jTextPlaca.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        getContentPane().add(jTextPlaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(127, 91, 92, -1));
 
-        jComboBox1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Toyota", "Chevrolet", "Mitsubishi", "Marcopolo", "Busscar", "Volskwagen", "Coopetran" }));
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 127, 92, -1));
+        jComboBoxModeloBus.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jComboBoxModeloBus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Toyota", "Chevrolet", "Mitsubishi", "Marcopolo", "Busscar", "Volskwagen", "Coopetran" }));
+        getContentPane().add(jComboBoxModeloBus, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 127, 92, -1));
 
         jComboBox9.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jComboBox9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Numero de bus" }));
@@ -275,10 +275,10 @@ public class InfoBuses extends javax.swing.JFrame {
     public javax.swing.JButton jButtonTablaBus;
     public javax.swing.JButton jButtonVerIDsEliminarBus;
     public javax.swing.JButton jButtonVolverBus;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox9;
+    public javax.swing.JComboBox<String> jComboBoxModeloBus;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel15;
@@ -292,8 +292,8 @@ public class InfoBuses extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableInfoBuses;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField4;
+    public javax.swing.JTextField jTextNumBus;
+    public javax.swing.JTextField jTextPlaca;
     // End of variables declaration//GEN-END:variables
 }

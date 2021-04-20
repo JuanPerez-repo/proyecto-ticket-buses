@@ -23,8 +23,10 @@ public class ProyectoPerezCastroNarvaez {
         SQL_Conductor modSqlCond = new SQL_Conductor();
         Conductor modCond = new Conductor();
         ComprarTicketBus cTB = new ComprarTicketBus();
+        Buses modbus = new Buses();
+        SQL_Buses modSqlbus = new SQL_Buses();
         
-        C_Login clogin = new C_Login(login, mlogin, admin, rUsuario, hcifrado, modSql, mod, user, conductor, buses, rutaBuses, modCond, modSqlCond, cTB);
+        C_Login clogin = new C_Login(login, mlogin, admin, rUsuario, hcifrado, modSql, mod, user, conductor, buses, rutaBuses, modCond, modSqlCond, cTB, modbus, modSqlbus);
         clogin.iniciarC_Login();
         login.setVisible(true);
         
