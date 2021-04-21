@@ -296,7 +296,7 @@ public class InfoBuses extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTableInfoBuses;
+    public javax.swing.JTable jTableInfoBuses;
     public javax.swing.JTextField jTextBuscarPlacaBus;
     public javax.swing.JTextField jTextNumBus;
     public javax.swing.JTextField jTextPlaca;

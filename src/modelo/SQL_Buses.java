@@ -4,12 +4,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
 
 public class SQL_Buses extends Conexion {
-    
+     
     public boolean anadirBus(Buses bus) {
 
         PreparedStatement ps = null;
@@ -176,5 +178,43 @@ public class SQL_Buses extends Conexion {
         }
 
     }
-    
+     
+    public List listar(){
+        
+        Connection con = getConexion();
+        
+        PreparedStatement ps = null;
+        
+        ResultSet rs;
+        
+        List<Buses>datos=new ArrayList<>();
+      
+        String sql = "select * from autobus";
+        
+        try{
+            
+            ps = con.prepareStatement(sql);
+            
+            rs = ps.executeQuery();
+            
+            while(rs.next()){
+                
+                Buses buss=new Buses();
+                
+                buss.setId_bus(rs.getInt(1));
+                
+                buss.setModelo_bus(rs.getString(2));
+                
+                buss.setPlaca_bus(rs.getString(3));
+                
+                datos.add(buss);
+            }
+            
+        }catch (Exception e){
+            
+        }
+        return datos;
+        
+    } 
+     
 }

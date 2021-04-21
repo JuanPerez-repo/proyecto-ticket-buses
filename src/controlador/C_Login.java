@@ -21,10 +21,13 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import static java.util.Objects.hash; //cifrado de contraseña
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 import modelo.hash;//cifrado de contraseña
 
 public class C_Login implements ActionListener {
@@ -45,7 +48,9 @@ public class C_Login implements ActionListener {
     private ComprarTicketBus cTB;
     private Buses bus;
     private SQL_Buses busql;
-
+    
+    DefaultTableModel modeloBus=new DefaultTableModel(); 
+   
     public C_Login(Login login, M_Login m_login, Administrador admin, CrearUsuario registroUsuario, hash cifrado,
             SQL_Cliente clientesql, Cliente cli, Usuario user, InfoConductor conductor, InfoBuses buses,
             InfoRutaBuses ruta_buses, Conductor cond, SQL_Conductor conductorsql, ComprarTicketBus cTB,
@@ -555,6 +560,10 @@ public class C_Login implements ActionListener {
             }
             
             
+        }else if(e.getSource() == buses.jButtonTablaBus){
+            
+            listarBus(buses.jTableInfoBuses);
+           
         } else if (e.getSource() == buses.jButtonVolverBus) {
 
             buses.setVisible(false);
@@ -590,4 +599,37 @@ public class C_Login implements ActionListener {
         }
 
     }
+    
+    public void listarBus(JTable tablaBus){
+        
+    modeloBus = (DefaultTableModel)tablaBus.getModel();
+    
+    List<Buses>lista=busql.listar();
+    
+    Object[]object=new Object[3];
+    
+    int numDatos = modeloBus.getRowCount();
+    
+    for(int k = 0; k < numDatos; k++){
+            
+            modeloBus.removeRow(0);
+            
+        }
+    
+    for (int i = 0; i< lista.size(); i++){
+            
+        object[0] = lista.get(i).getId_bus();
+        
+        object[1] = lista.get(i).getModelo_bus();
+                
+        object[2] = lista.get(i).getPlaca_bus();
+          
+        modeloBus.addRow(object);
+        
+    }
+        
+    buses.jTableInfoBuses.setModel(modeloBus);
+    
+    }
+    
 }
