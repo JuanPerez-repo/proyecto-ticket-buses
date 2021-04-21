@@ -30,20 +30,20 @@ public class InfoBuses extends javax.swing.JFrame {
         jButtonAnadirBus = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jButtonTablaBus = new javax.swing.JButton();
-        jComboBox4 = new javax.swing.JComboBox<>();
+        jComboBoxBuscarBusID = new javax.swing.JComboBox<>();
         jButtonBuscarInfoBusParaModificar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        jTextBuscarPlacaBus = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jTextNumBus = new javax.swing.JTextField();
         jTextPlaca = new javax.swing.JTextField();
         jComboBoxModeloBus = new javax.swing.JComboBox<>();
-        jComboBox9 = new javax.swing.JComboBox<>();
+        jComboBoxEliminarBus = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jComboBoxModeloBuscarBus = new javax.swing.JComboBox<>();
         jButtonHelpBus = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableInfoBuses = new javax.swing.JTable();
@@ -78,16 +78,16 @@ public class InfoBuses extends javax.swing.JFrame {
         jButtonTablaBus.setText("Actualizar tabla");
         getContentPane().add(jButtonTablaBus, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 150, 30));
 
-        jComboBox4.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Numero de bus" }));
-        jComboBox4.setEnabled(false);
-        getContentPane().add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 60, 120, -1));
+        jComboBoxBuscarBusID.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jComboBoxBuscarBusID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Numero de bus" }));
+        jComboBoxBuscarBusID.setEnabled(false);
+        getContentPane().add(jComboBoxBuscarBusID, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 60, 120, -1));
 
         jButtonBuscarInfoBusParaModificar.setBackground(new java.awt.Color(204, 204, 255));
         jButtonBuscarInfoBusParaModificar.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jButtonBuscarInfoBusParaModificar.setText("Buscar");
         jButtonBuscarInfoBusParaModificar.setEnabled(false);
-        getContentPane().add(jButtonBuscarInfoBusParaModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 90, 70, 20));
+        getContentPane().add(jButtonBuscarInfoBusParaModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 90, 70, 20));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -109,9 +109,9 @@ public class InfoBuses extends javax.swing.JFrame {
         jLabel5.setText("Modelo del bus:");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 100, 30));
 
-        jTextField4.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jTextField4.setEnabled(false);
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 98, 100, -1));
+        jTextBuscarPlacaBus.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jTextBuscarPlacaBus.setEnabled(false);
+        getContentPane().add(jTextBuscarPlacaBus, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 98, 100, -1));
 
         jLabel12.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
@@ -128,20 +128,20 @@ public class InfoBuses extends javax.swing.JFrame {
         jComboBoxModeloBus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Toyota", "Chevrolet", "Mitsubishi", "Marcopolo", "Busscar", "Volskwagen", "Coopetran" }));
         getContentPane().add(jComboBoxModeloBus, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 127, 100, -1));
 
-        jComboBox9.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jComboBox9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Numero de bus" }));
-        jComboBox9.setEnabled(false);
-        getContentPane().add(jComboBox9, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 90, 129, -1));
+        jComboBoxEliminarBus.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jComboBoxEliminarBus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Numero de bus" }));
+        jComboBoxEliminarBus.setEnabled(false);
+        getContentPane().add(jComboBoxEliminarBus, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 90, 129, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Modelo del bus:");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(258, 130, 100, -1));
 
-        jComboBox2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Toyota", "Chevrolet", "Mitsubishi", "Marcopolo", "Busscar", "Volskwagen", "Coopetran" }));
-        jComboBox2.setEnabled(false);
-        getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 130, 90, -1));
+        jComboBoxModeloBuscarBus.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jComboBoxModeloBuscarBus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Toyota", "Chevrolet", "Mitsubishi", "Marcopolo", "Busscar", "Volskwagen", "Coopetran" }));
+        jComboBoxModeloBuscarBus.setEnabled(false);
+        getContentPane().add(jComboBoxModeloBuscarBus, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 130, 90, -1));
 
         jButtonHelpBus.setBackground(new java.awt.Color(204, 204, 255));
         jButtonHelpBus.setForeground(new java.awt.Color(255, 255, 255));
@@ -271,7 +271,7 @@ public class InfoBuses extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton jButtonAnadirBus;
-    private javax.swing.JButton jButtonBuscarInfoBusParaModificar;
+    public javax.swing.JButton jButtonBuscarInfoBusParaModificar;
     public javax.swing.JButton jButtonEliminarBus;
     public javax.swing.JButton jButtonHelpBus;
     public javax.swing.JButton jButtonIDsModificarBus;
@@ -280,10 +280,10 @@ public class InfoBuses extends javax.swing.JFrame {
     public javax.swing.JButton jButtonTablaBus;
     public javax.swing.JButton jButtonVerIDsEliminarBus;
     public javax.swing.JButton jButtonVolverBus;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox4;
-    private javax.swing.JComboBox<String> jComboBox9;
+    public javax.swing.JComboBox<String> jComboBoxBuscarBusID;
+    public javax.swing.JComboBox<String> jComboBoxEliminarBus;
     public javax.swing.JComboBox<String> jComboBoxModeloBus;
+    public javax.swing.JComboBox<String> jComboBoxModeloBuscarBus;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel15;
@@ -297,7 +297,7 @@ public class InfoBuses extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableInfoBuses;
-    private javax.swing.JTextField jTextField4;
+    public javax.swing.JTextField jTextBuscarPlacaBus;
     public javax.swing.JTextField jTextNumBus;
     public javax.swing.JTextField jTextPlaca;
     // End of variables declaration//GEN-END:variables

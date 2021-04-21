@@ -96,6 +96,7 @@ public class C_Login implements ActionListener {
         this.buses.jButtonEliminarBus.addActionListener(this);
         this.buses.jButtonHelpBus.addActionListener(this);
         this.buses.jButtonIDsModificarBus.addActionListener(this);
+        this.buses.jButtonBuscarInfoBusParaModificar.addActionListener(this);
         this.buses.jButtonModificarBus.addActionListener(this);
         this.buses.jButtonTablaBus.addActionListener(this);
         this.buses.jButtonVerIDsEliminarBus.addActionListener(this);
@@ -482,7 +483,7 @@ public class C_Login implements ActionListener {
 
                 bus.setId_bus(Integer.parseInt(buses.jTextNumBus.getText()));
 
-                bus.setModelo_bus((String) buses.jComboBoxModeloBus.getSelectedItem());//sin probar aun (20-04-2021)
+                bus.setModelo_bus((String) buses.jComboBoxModeloBus.getSelectedItem());
 
                 bus.setPlaca_bus(buses.jTextPlaca.getText());
 
@@ -494,13 +495,66 @@ public class C_Login implements ActionListener {
             }
 
         } else if (e.getSource() == buses.jButtonEliminarBus) {
+            
+            int elimBus = Integer.parseInt(String.valueOf(buses.jComboBoxEliminarBus.getSelectedItem()));
+            bus.setId_bus(elimBus);
+
+            if (busql.eliminarBus(bus)) {
+                JOptionPane.showMessageDialog(null, "El autobus fue eliminado con exito de la base de datos.", "Información", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "Error al eliminar de la base de datos.", "Información", JOptionPane.ERROR_MESSAGE);
+            }
 
         } else if (e.getSource() == buses.jButtonHelpBus) {
 
-        } else if (e.getSource() == buses.jButtonIDsModificarBus) {
+        }else if(e.getSource() == buses.jButtonBuscarInfoBusParaModificar){
+            
+            int x = Integer.parseInt(String.valueOf(buses.jComboBoxBuscarBusID.getSelectedItem()));
 
-        } else if (e.getSource() == buses.jButtonModificarBus) {
+            bus.setId_bus(x);
+        
+            if (busql.BuscarBus(bus)){
 
+                buses.jComboBoxModeloBuscarBus.setSelectedItem(bus.getModelo_bus());
+                
+                buses.jTextBuscarPlacaBus.setText(bus.getPlaca_bus());
+                   
+            }
+                       
+            buses.jComboBoxModeloBuscarBus.setEnabled(true);
+            
+            buses.jTextBuscarPlacaBus.setEnabled(true);
+            
+            buses.jButtonModificarBus.setEnabled(true);
+            
+        }else if(e.getSource() == buses.jButtonIDsModificarBus){//Botón de ver los IDS --> InfoBuses
+            
+            buses.jButtonBuscarInfoBusParaModificar.setEnabled(true);
+            
+            buses.jComboBoxBuscarBusID.removeAllItems();
+            
+            busql.seleccionar_IDs_Bus(buses.jComboBoxBuscarBusID);
+            
+            buses.jComboBoxBuscarBusID.setEnabled(true);
+            
+        } else if (e.getSource() == buses.jButtonModificarBus) {// Botón de modificar --> InfoBuses 
+
+            int p = Integer.parseInt(String.valueOf(buses.jComboBoxBuscarBusID.getSelectedItem()));
+            bus.setId_bus(p);
+            bus.setModelo_bus(String.valueOf(buses.jComboBoxModeloBuscarBus.getSelectedItem()));
+            bus.setPlaca_bus(buses.jTextBuscarPlacaBus.getText());
+            
+            if(busql.modificarBus(bus)){
+                
+                 JOptionPane.showMessageDialog(null, "Los datos se han actualizado de manera exitosa", "Información", JOptionPane.INFORMATION_MESSAGE);
+                
+            }else{
+                
+                JOptionPane.showMessageDialog(null, "No se han podido actualizar los datos", "Información", JOptionPane.ERROR_MESSAGE);
+                
+            }
+            
+            
         } else if (e.getSource() == buses.jButtonVolverBus) {
 
             buses.setVisible(false);
@@ -508,6 +562,11 @@ public class C_Login implements ActionListener {
 
         } else if (e.getSource() == buses.jButtonVerIDsEliminarBus) {
 
+            buses.jComboBoxEliminarBus.setEnabled(true);
+            buses.jComboBoxEliminarBus.removeAllItems();
+            busql.seleccionar_IDs_Bus(buses.jComboBoxEliminarBus);
+            buses.jButtonEliminarBus.setEnabled(true);
+     
         } else if (e.getSource() == buses.jButtonNumeroAleatorio) {
 
             buses.jTextNumBus.setText(String.valueOf((int) Math.floor(Math.random() * (9000) + 1000)));
