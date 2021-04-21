@@ -55,6 +55,7 @@ public class InfoBuses extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jButtonVolverBus = new javax.swing.JButton();
+        jButtonNumeroAleatorio = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -118,14 +119,14 @@ public class InfoBuses extends javax.swing.JFrame {
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(258, 95, 90, -1));
 
         jTextNumBus.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        getContentPane().add(jTextNumBus, new org.netbeans.lib.awtextra.AbsoluteConstraints(127, 58, 92, -1));
+        getContentPane().add(jTextNumBus, new org.netbeans.lib.awtextra.AbsoluteConstraints(127, 58, 60, -1));
 
         jTextPlaca.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        getContentPane().add(jTextPlaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(127, 91, 92, -1));
+        getContentPane().add(jTextPlaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(127, 91, 100, -1));
 
         jComboBoxModeloBus.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jComboBoxModeloBus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Toyota", "Chevrolet", "Mitsubishi", "Marcopolo", "Busscar", "Volskwagen", "Coopetran" }));
-        getContentPane().add(jComboBoxModeloBus, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 127, 92, -1));
+        getContentPane().add(jComboBoxModeloBus, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 127, 100, -1));
 
         jComboBox9.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jComboBox9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Numero de bus" }));
@@ -223,6 +224,9 @@ public class InfoBuses extends javax.swing.JFrame {
         jButtonVolverBus.setText("Volver");
         getContentPane().add(jButtonVolverBus, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 350, 105, 30));
 
+        jButtonNumeroAleatorio.setText("R");
+        getContentPane().add(jButtonNumeroAleatorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, -1, 20));
+
         jLabel3.setBackground(new java.awt.Color(153, 153, 153));
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/3e11d0b4-01f7-4495-b1fc-1eea5bfc8a14.jpg"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 410));
@@ -272,6 +276,7 @@ public class InfoBuses extends javax.swing.JFrame {
     public javax.swing.JButton jButtonHelpBus;
     public javax.swing.JButton jButtonIDsModificarBus;
     public javax.swing.JButton jButtonModificarBus;
+    public javax.swing.JButton jButtonNumeroAleatorio;
     public javax.swing.JButton jButtonTablaBus;
     public javax.swing.JButton jButtonVerIDsEliminarBus;
     public javax.swing.JButton jButtonVolverBus;

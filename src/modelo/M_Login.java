@@ -44,9 +44,6 @@ public class M_Login extends Conexion {
 
             ResultSet result = ps.executeQuery();
             
-
-
-            int i = 1;
             
             if (result.next()){
                 if (usuario.equals(result.getString(1)) && contrasena.equals(result.getString(2))){

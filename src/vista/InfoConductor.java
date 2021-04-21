@@ -105,7 +105,6 @@ public class InfoConductor extends javax.swing.JFrame {
         });
         getContentPane().add(jButtonAnadirCond, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 100, 40));
 
-        jComboBuscarID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID Doc Identidad" }));
         jComboBuscarID.setEnabled(false);
         getContentPane().add(jComboBuscarID, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 110, 110, -1));
 
@@ -210,7 +209,7 @@ public class InfoConductor extends javax.swing.JFrame {
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 100, 60));
 
         jDateModificarConductor.setEnabled(false);
-        getContentPane().add(jDateModificarConductor, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 240, 120, -1));
+        getContentPane().add(jDateModificarConductor, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 250, 120, -1));
 
         jLabel21.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(255, 255, 255));

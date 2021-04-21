@@ -18,9 +18,12 @@ import modelo.SQL_Buses;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import static java.util.Objects.hash; //cifrado de contraseña
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import modelo.hash;//cifrado de contraseña
 
@@ -64,7 +67,7 @@ public class C_Login implements ActionListener {
         this.cTB = cTB; //Vista Comprar Ticket Bus
         this.bus = bus;
         this.busql = busql;
-        
+
         this.login.jButtonAdmin.addActionListener(this);
         this.login.jButtonRegistroUsuario.addActionListener(this);
         this.login.jButtonExit.addActionListener(this);
@@ -97,6 +100,7 @@ public class C_Login implements ActionListener {
         this.buses.jButtonTablaBus.addActionListener(this);
         this.buses.jButtonVerIDsEliminarBus.addActionListener(this);
         this.buses.jButtonVolverBus.addActionListener(this);
+        this.buses.jButtonNumeroAleatorio.addActionListener(this);
         this.ruta_buses.jButtonAgregarRutaBus.addActionListener(this);
         this.ruta_buses.jButtonVolverRutaBuses.addActionListener(this);
         this.cTB.jButtonCTB_Viajes.addActionListener(this);
@@ -393,40 +397,102 @@ public class C_Login implements ActionListener {
 
         } else if (e.getSource() == conductor.jButtonBuscarIDsConductor) { //BUSCAR INFO POR LA ID DE UN CONDUCTOR (InfoConductor)
 
+            String fecha = "";
+            int d = Integer.parseInt(String.valueOf(conductor.jComboBuscarID.getSelectedItem()));
+
+            cond.setId_cond(d);
+
+            if (conductorsql.buscarConductor(cond)) {
+
+                conductor.jTextModificarNombreConductor.setText(cond.getNombres_cond());
+                conductor.jTextModificarApellidoConductor.setText(cond.getApellios_cond());
+                fecha = cond.getF_naci_cond();
+
+            }
+
+            Date date;
+            try {
+                date = new SimpleDateFormat("yyyy-MM-dd").parse(fecha);
+                conductor.jDateModificarConductor.setDate(date);
+            } catch (ParseException ex) {
+                Logger.getLogger(C_Login.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            conductor.jTextModificarNombreConductor.setEnabled(true);
+            conductor.jTextModificarApellidoConductor.setEnabled(true);
+            conductor.jDateModificarConductor.setEnabled(true);
             conductor.jButtonModificarInfoConductor.setEnabled(true);
 
+        } else if (e.getSource() == conductor.jButtonModificarInfoConductor) { //BOTON MODIFICAR CONDUCTOR (InfoConductor)
+
+            int q = Integer.parseInt(String.valueOf(conductor.jComboBuscarID.getSelectedItem()));
+            cond.setId_cond(q);
+            cond.setNombres_cond(conductor.jTextModificarNombreConductor.getText());
+            cond.setApellios_cond(conductor.jTextModificarApellidoConductor.getText());
+
+            Date ModificarfechaConductor = conductor.jDateModificarConductor.getDate();
+
+            DateFormat formato = new SimpleDateFormat("yyyy/MM/dd");
+
+            String DateDriver = formato.format(ModificarfechaConductor).toString();
+            cond.setF_naci_cond(DateDriver);
+            
+            if (conductorsql.modificarConductor(cond)){
+                
+                JOptionPane.showMessageDialog(null, "Los datos del conductor fueron actualizados exitosamente.", "Información", JOptionPane.INFORMATION_MESSAGE);
+                
+            } else {
+                JOptionPane.showMessageDialog(null, "Error al actualizar datos del conductor.", "Información", JOptionPane.ERROR_MESSAGE);
+            }
+
         } else if (e.getSource() == conductor.jButtonEliminarConductor) { //ELIMINA UN CONDUCTOR DE LA BD (InfoConductor)
+
+            int elim = Integer.parseInt(String.valueOf(conductor.jComboEliminarID.getSelectedItem()));
+            cond.setId_cond(elim);
+
+            if (conductorsql.eliminarConductor(cond)) {
+                JOptionPane.showMessageDialog(null, "El conductor fue eliminado con exito de la base de datos.", "Información", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "Error al eliminar de la base de datos.", "Información", JOptionPane.ERROR_MESSAGE);
+            }
 
         } else if (e.getSource() == conductor.jButtonHelpConductor) { //AYUDA PARA EL ADMIN EN LA INTERFAZ DE INFOCONDUCTOR
 
         } else if (e.getSource() == conductor.jButtonVerIDsModificarConductor) { //MUESTRA LAS IDS DE LOS CONDUCTORES EN EL COMBOBOX PARA MODIFICAR LUEGO (InfoConductor)
 
             conductor.jComboBuscarID.setEnabled(true);
+            conductor.jComboBuscarID.removeAllItems();
+            conductorsql.seleccionar_IDs(conductor.jComboBuscarID);
             conductor.jButtonBuscarIDsConductor.setEnabled(true);
 
         } else if (e.getSource() == conductor.jButtonVerIDsEliminarConductor) { //MUESTRA LAS IDS DE LOS CONDUCTORES EN EL COMBOBOX PARA ELIMINAR LUEGO (InfoConductor)
 
+            conductor.jComboEliminarID.setEnabled(true);
+            conductor.jComboEliminarID.removeAllItems();
+            conductorsql.seleccionar_IDs(conductor.jComboEliminarID);
+            conductor.jButtonEliminarConductor.setEnabled(true);
+
         } else if (e.getSource() == buses.jButtonAnadirBus) {
 
-            if(buses.jTextNumBus.getText().equals("") || buses.jTextPlaca.getText().equals("")){
-                
-                 JOptionPane.showMessageDialog(null, "Hay campos vacíos, por favor rellenar todos los campos.", "Error al añadir", JOptionPane.WARNING_MESSAGE);
-                
-            }else{
-                
+            if (buses.jTextNumBus.getText().equals("") || buses.jTextPlaca.getText().equals("")) {
+
+                JOptionPane.showMessageDialog(null, "Hay campos vacíos, por favor rellenar todos los campos.", "Error al añadir", JOptionPane.WARNING_MESSAGE);
+
+            } else {
+
                 bus.setId_bus(Integer.parseInt(buses.jTextNumBus.getText()));
-                
-                bus.setModelo_bus((String)buses.jComboBoxModeloBus.getSelectedItem());//sin probar aun (20-04-2021)
-                
+
+                bus.setModelo_bus((String) buses.jComboBoxModeloBus.getSelectedItem());//sin probar aun (20-04-2021)
+
                 bus.setPlaca_bus(buses.jTextPlaca.getText());
-                
-                if(busql.anadirBus(bus)){
-                    
-                     JOptionPane.showMessageDialog(null, "El autobus fue añadido exitosamente.");
+
+                if (busql.anadirBus(bus)) {
+
+                    JOptionPane.showMessageDialog(null, "El autobus fue añadido exitosamente.");
 
                 }
             }
-            
+
         } else if (e.getSource() == buses.jButtonEliminarBus) {
 
         } else if (e.getSource() == buses.jButtonHelpBus) {
@@ -442,6 +508,10 @@ public class C_Login implements ActionListener {
 
         } else if (e.getSource() == buses.jButtonVerIDsEliminarBus) {
 
+        } else if (e.getSource() == buses.jButtonNumeroAleatorio) {
+
+            buses.jTextNumBus.setText(String.valueOf((int) Math.floor(Math.random() * (9000) + 1000)));
+
         } else if (e.getSource() == ruta_buses.jButtonAgregarRutaBus) {
 
         } else if (e.getSource() == ruta_buses.jButtonVolverRutaBuses) {
@@ -454,10 +524,10 @@ public class C_Login implements ActionListener {
         } else if (e.getSource() == cTB.jButtonCTB_ReservarTicket) {
 
         } else if (e.getSource() == cTB.jButtonCTB_Volver) {
-            
+
             cTB.setVisible(false);
             user.setVisible(true);
-            
+
         }
 
     }
