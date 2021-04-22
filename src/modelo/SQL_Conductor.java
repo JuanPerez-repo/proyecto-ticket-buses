@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
@@ -180,6 +182,46 @@ public class SQL_Conductor extends Conexion {
             }
         }
 
+    }
+    
+        public List listar(){
+        
+        Connection con = getConexion();
+        
+        PreparedStatement ps = null;
+        
+        ResultSet rs;
+        
+        List<Conductor>datos=new ArrayList<>();
+      
+        String sql = "select * from conductor";
+        
+        try{
+            
+            ps = con.prepareStatement(sql);
+            
+            rs = ps.executeQuery();
+            
+            while(rs.next()){
+                
+                Conductor driver=new Conductor();
+                
+                driver.setId_cond(rs.getInt(1));
+                
+                driver.setNombres_cond(rs.getString(2));
+                
+                driver.setApellios_cond(rs.getString(3));
+                
+                driver.setF_naci_cond(rs.getString(4));
+                
+                datos.add(driver);
+            }
+            
+        }catch (Exception e){
+            
+        }
+        return datos;
+        
     }
 
 }

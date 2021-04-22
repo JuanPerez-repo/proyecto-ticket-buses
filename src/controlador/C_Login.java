@@ -20,7 +20,9 @@ import java.awt.event.ActionListener;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import static java.util.Objects.hash; //cifrado de contraseña
 import java.util.logging.Level;
@@ -48,9 +50,11 @@ public class C_Login implements ActionListener {
     private ComprarTicketBus cTB;
     private Buses bus;
     private SQL_Buses busql;
-    
-    DefaultTableModel modeloBus=new DefaultTableModel(); 
-   
+
+    DefaultTableModel modeloBus = new DefaultTableModel();
+    DefaultTableModel modeloCliente = new DefaultTableModel();
+    DefaultTableModel modeloConductor = new DefaultTableModel();
+
     public C_Login(Login login, M_Login m_login, Administrador admin, CrearUsuario registroUsuario, hash cifrado,
             SQL_Cliente clientesql, Cliente cli, Usuario user, InfoConductor conductor, InfoBuses buses,
             InfoRutaBuses ruta_buses, Conductor cond, SQL_Conductor conductorsql, ComprarTicketBus cTB,
@@ -348,6 +352,8 @@ public class C_Login implements ActionListener {
 
         } else if (e.getSource() == admin.jButtonAdminInfoUsers) { //BOTON PARA LLENAR LA TABLA CON TODOS LOS USUARIOS DENTRO DE LA BD (Administrador)
 
+            listarCliente(admin.jTableInfoTodosLosUsuarios);
+
         } else if (e.getSource() == admin.jButtonAdminRuta) { //BOTON PARA AGREGAR RUTAS DE LOS BUSES (Administrador)
 
             if (ventanaCrearRuta == 0) {
@@ -401,6 +407,8 @@ public class C_Login implements ActionListener {
 
         } else if (e.getSource() == conductor.jButtonActualizarTablaConductores) { //ACTUALIZAR TABLA DE CONDUCTORES (InfoConductor)
 
+            listarConductor(conductor.jTableInfoConductor);
+            
         } else if (e.getSource() == conductor.jButtonBuscarIDsConductor) { //BUSCAR INFO POR LA ID DE UN CONDUCTOR (InfoConductor)
 
             String fecha = "";
@@ -442,11 +450,11 @@ public class C_Login implements ActionListener {
 
             String DateDriver = formato.format(ModificarfechaConductor).toString();
             cond.setF_naci_cond(DateDriver);
-            
-            if (conductorsql.modificarConductor(cond)){
-                
+
+            if (conductorsql.modificarConductor(cond)) {
+
                 JOptionPane.showMessageDialog(null, "Los datos del conductor fueron actualizados exitosamente.", "Información", JOptionPane.INFORMATION_MESSAGE);
-                
+
             } else {
                 JOptionPane.showMessageDialog(null, "Error al actualizar datos del conductor.", "Información", JOptionPane.ERROR_MESSAGE);
             }
@@ -500,7 +508,7 @@ public class C_Login implements ActionListener {
             }
 
         } else if (e.getSource() == buses.jButtonEliminarBus) {
-            
+
             int elimBus = Integer.parseInt(String.valueOf(buses.jComboBoxEliminarBus.getSelectedItem()));
             bus.setId_bus(elimBus);
 
@@ -512,58 +520,57 @@ public class C_Login implements ActionListener {
 
         } else if (e.getSource() == buses.jButtonHelpBus) {
 
-        }else if(e.getSource() == buses.jButtonBuscarInfoBusParaModificar){
-            
+        } else if (e.getSource() == buses.jButtonBuscarInfoBusParaModificar) {
+
             int x = Integer.parseInt(String.valueOf(buses.jComboBoxBuscarBusID.getSelectedItem()));
 
             bus.setId_bus(x);
-        
-            if (busql.BuscarBus(bus)){
+
+            if (busql.BuscarBus(bus)) {
 
                 buses.jComboBoxModeloBuscarBus.setSelectedItem(bus.getModelo_bus());
-                
+
                 buses.jTextBuscarPlacaBus.setText(bus.getPlaca_bus());
-                   
+
             }
-                       
+
             buses.jComboBoxModeloBuscarBus.setEnabled(true);
-            
+
             buses.jTextBuscarPlacaBus.setEnabled(true);
-            
+
             buses.jButtonModificarBus.setEnabled(true);
-            
-        }else if(e.getSource() == buses.jButtonIDsModificarBus){//Botón de ver los IDS --> InfoBuses
-            
+
+        } else if (e.getSource() == buses.jButtonIDsModificarBus) {//Botón de ver los IDS --> InfoBuses
+
             buses.jButtonBuscarInfoBusParaModificar.setEnabled(true);
-            
+
             buses.jComboBoxBuscarBusID.removeAllItems();
-            
+
             busql.seleccionar_IDs_Bus(buses.jComboBoxBuscarBusID);
-            
+
             buses.jComboBoxBuscarBusID.setEnabled(true);
-            
+
         } else if (e.getSource() == buses.jButtonModificarBus) {// Botón de modificar --> InfoBuses 
 
             int p = Integer.parseInt(String.valueOf(buses.jComboBoxBuscarBusID.getSelectedItem()));
             bus.setId_bus(p);
             bus.setModelo_bus(String.valueOf(buses.jComboBoxModeloBuscarBus.getSelectedItem()));
             bus.setPlaca_bus(buses.jTextBuscarPlacaBus.getText());
-            
-            if(busql.modificarBus(bus)){
-                
-                 JOptionPane.showMessageDialog(null, "Los datos se han actualizado de manera exitosa", "Información", JOptionPane.INFORMATION_MESSAGE);
-                
-            }else{
-                
+
+            if (busql.modificarBus(bus)) {
+
+                JOptionPane.showMessageDialog(null, "Los datos se han actualizado de manera exitosa", "Información", JOptionPane.INFORMATION_MESSAGE);
+
+            } else {
+
                 JOptionPane.showMessageDialog(null, "No se han podido actualizar los datos", "Información", JOptionPane.ERROR_MESSAGE);
-                
+
             }
-            
-            
-        }else if(e.getSource() == buses.jButtonTablaBus){
-            
+
+        } else if (e.getSource() == buses.jButtonTablaBus) {
+
             listarBus(buses.jTableInfoBuses);
-           
+
         } else if (e.getSource() == buses.jButtonVolverBus) {
 
             buses.setVisible(false);
@@ -575,12 +582,27 @@ public class C_Login implements ActionListener {
             buses.jComboBoxEliminarBus.removeAllItems();
             busql.seleccionar_IDs_Bus(buses.jComboBoxEliminarBus);
             buses.jButtonEliminarBus.setEnabled(true);
-     
+
         } else if (e.getSource() == buses.jButtonNumeroAleatorio) {
 
             buses.jTextNumBus.setText(String.valueOf((int) Math.floor(Math.random() * (9000) + 1000)));
 
         } else if (e.getSource() == ruta_buses.jButtonAgregarRutaBus) {
+
+            Date fechaActual = new Date();
+            
+            SimpleDateFormat timedate = new SimpleDateFormat("hh:mm yyyy-MM-dd");
+            SimpleDateFormat onlydate = new SimpleDateFormat("yyyy-MM-dd");       
+
+            Date fechaPartida = ruta_buses.jDateFechaPartida.getDate();
+
+            if (fechaValida(fechaActual, fechaPartida) == true) {
+                
+                
+                
+            } else {
+                JOptionPane.showMessageDialog(null, "No se puede agregar rutas para el mismo dia o anterior de la fecha actual.", "Información", JOptionPane.ERROR_MESSAGE);
+            }
 
         } else if (e.getSource() == ruta_buses.jButtonVolverRutaBuses) {
 
@@ -599,37 +621,116 @@ public class C_Login implements ActionListener {
         }
 
     }
-    
-    public void listarBus(JTable tablaBus){
-        
-    modeloBus = (DefaultTableModel)tablaBus.getModel();
-    
-    List<Buses>lista=busql.listar();
-    
-    Object[]object=new Object[3];
-    
-    int numDatos = modeloBus.getRowCount();
-    
-    for(int k = 0; k < numDatos; k++){
-            
-            modeloBus.removeRow(0);
-            
+
+    public boolean fechaValida(Date fechaAct, Date fechaSelected) {
+
+        if (fechaAct.compareTo(fechaSelected) > 0) {
+            return false;
+        } else if (fechaAct.compareTo(fechaSelected) < 0) {
+            return true;
+        } else if (fechaAct.compareTo(fechaSelected) == 0) {
+            return true;
         }
-    
-    for (int i = 0; i< lista.size(); i++){
-            
-        object[0] = lista.get(i).getId_bus();
-        
-        object[1] = lista.get(i).getModelo_bus();
-                
-        object[2] = lista.get(i).getPlaca_bus();
-          
-        modeloBus.addRow(object);
-        
+        return false;
     }
-        
-    buses.jTableInfoBuses.setModel(modeloBus);
-    
+
+    public void listarBus(JTable tablaBus) {
+
+        modeloBus = (DefaultTableModel) tablaBus.getModel();
+
+        List<Buses> lista = busql.listar();
+
+        Object[] object = new Object[3];
+
+        int numDatos = modeloBus.getRowCount();
+
+        for (int k = 0; k < numDatos; k++) {
+
+            modeloBus.removeRow(0);
+
+        }
+
+        for (int i = 0; i < lista.size(); i++) {
+
+            object[0] = lista.get(i).getId_bus();
+
+            object[1] = lista.get(i).getModelo_bus();
+
+            object[2] = lista.get(i).getPlaca_bus();
+
+            modeloBus.addRow(object);
+
+        }
+
+        buses.jTableInfoBuses.setModel(modeloBus);
+
+    }
+
+    public void listarCliente(JTable tablaCliente) {
+
+        modeloCliente = (DefaultTableModel) tablaCliente.getModel();
+
+        List<Cliente> lista = clientesql.listar();
+
+        Object[] object = new Object[6];
+
+        int numDatos = modeloCliente.getRowCount();
+
+        for (int k = 0; k < numDatos; k++) {
+
+            modeloCliente.removeRow(0);
+
+        }
+
+        for (int i = 0; i < lista.size(); i++) {
+
+            object[0] = lista.get(i).getId_cliente();
+            object[1] = lista.get(i).getNombres_cliente();
+            object[2] = lista.get(i).getApellidos_cliente();
+            object[3] = lista.get(i).getF_naci_cliente();
+            object[4] = lista.get(i).getCorreo_cliente();
+            object[5] = lista.get(i).getContrasena();
+
+            modeloCliente.addRow(object);
+
+        }
+
+        admin.jTableInfoTodosLosUsuarios.setModel(modeloCliente);
+
+    }
+
+        public void listarConductor(JTable tablaConductor) {
+
+        modeloConductor = (DefaultTableModel) tablaConductor.getModel();
+
+        List<Conductor> lista = conductorsql.listar();
+
+        Object[] object = new Object[4];
+
+        int numDatos = modeloConductor.getRowCount();
+
+        for (int k = 0; k < numDatos; k++) {
+
+            modeloConductor.removeRow(0);
+
+        }
+
+        for (int i = 0; i < lista.size(); i++) {
+
+            object[0] = lista.get(i).getId_cond();
+
+            object[1] = lista.get(i).getNombres_cond();
+
+            object[2] = lista.get(i).getApellios_cond();
+            
+            object[3] = lista.get(i).getF_naci_cond();
+
+            modeloConductor.addRow(object);
+
+        }
+
+        conductor.jTableInfoConductor.setModel(modeloConductor);
+
     }
     
 }

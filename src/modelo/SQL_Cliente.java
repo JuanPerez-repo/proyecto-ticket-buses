@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
@@ -171,5 +173,44 @@ public class SQL_Cliente extends Conexion {
 
         return mather.find();
 
+    }
+    
+        public List listar(){
+        
+        Connection con = getConexion();
+        
+        PreparedStatement ps = null;
+        
+        ResultSet rs;
+        
+        List<Cliente>datos=new ArrayList<>();
+      
+        String sql = "select * from cliente";
+        
+        try{
+            
+            ps = con.prepareStatement(sql);
+            
+            rs = ps.executeQuery();
+            
+            while(rs.next()){
+                
+                Cliente cli=new Cliente();
+                
+                cli.setId_cliente(rs.getInt(1));    
+                cli.setNombres_cliente(rs.getString(2));
+                cli.setApellidos_cliente(rs.getString(3));
+                cli.setF_naci_cliente(rs.getString(4));
+                cli.setCorreo_cliente(rs.getString(5));
+                cli.setContrasena(rs.getString(6));
+                
+                datos.add(cli);
+            }
+            
+        }catch (Exception e){
+            System.err.println("Hubo un error al listar los datos del Usuario: "+e);
+        }
+        return datos;
+        
     }
 }

@@ -45,12 +45,12 @@ public class InfoRutaBuses extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jComboBox4 = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jDateFechaPartida = new com.toedter.calendar.JDateChooser();
         jButtonAgregarRutaBus = new javax.swing.JButton();
         jButtonVolverRutaBuses = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        jComboBox5 = new javax.swing.JComboBox<>();
-        jComboBox6 = new javax.swing.JComboBox<>();
+        jComboHora = new javax.swing.JComboBox<>();
+        jComboMinutos = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
@@ -103,7 +103,7 @@ public class InfoRutaBuses extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Fecha de partida:");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 120, 30));
-        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 163, -1));
+        getContentPane().add(jDateFechaPartida, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 163, -1));
 
         jButtonAgregarRutaBus.setBackground(new java.awt.Color(204, 204, 255));
         jButtonAgregarRutaBus.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -127,11 +127,11 @@ public class InfoRutaBuses extends javax.swing.JFrame {
         jLabel6.setText("MM");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, -1, -1));
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23" }));
-        getContentPane().add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 70, -1));
+        jComboHora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23" }));
+        getContentPane().add(jComboHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 70, -1));
 
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "15", "30", "45" }));
-        getContentPane().add(jComboBox6, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 70, -1));
+        jComboMinutos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "15", "30", "45" }));
+        getContentPane().add(jComboMinutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 70, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -216,9 +216,9 @@ public class InfoRutaBuses extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
-    private javax.swing.JComboBox<String> jComboBox5;
-    private javax.swing.JComboBox<String> jComboBox6;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
+    public javax.swing.JComboBox<String> jComboHora;
+    public javax.swing.JComboBox<String> jComboMinutos;
+    public com.toedter.calendar.JDateChooser jDateFechaPartida;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
