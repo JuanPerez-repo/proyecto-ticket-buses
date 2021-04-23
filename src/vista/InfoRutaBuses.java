@@ -37,13 +37,13 @@ public class InfoRutaBuses extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboNumBUS = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jComboID_Conductor = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        jComboOrigen = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox<>();
+        jComboDestino = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
         jDateFechaPartida = new com.toedter.calendar.JDateChooser();
         jButtonAgregarRutaBus = new javax.swing.JButton();
@@ -53,7 +53,7 @@ public class InfoRutaBuses extends javax.swing.JFrame {
         jComboMinutos = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jTextAreaInfoRuta = new javax.swing.JTextArea();
         jLabel9 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -65,45 +65,43 @@ public class InfoRutaBuses extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Agregar ruta de bus:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Elegir Numero de Bus:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 80, 150, 40));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 150, 40));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 160, -1));
+        getContentPane().add(jComboNumBUS, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 160, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Elegir conductor por ID:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 163, -1));
+        getContentPane().add(jComboID_Conductor, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 163, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Lugar de partida:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 110, 40));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 110, 40));
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Barranquilla", "Malambo", "Palmar de Varela", "Sabanalarga", "Puerto Colombia", "Salgar", "Suan", "Campo de la Cruz", "Repelon", "Baranoa", "Galapa" }));
-        getContentPane().add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, -1, -1));
+        jComboOrigen.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Barranquilla", "Malambo", "Palmar de Varela", "Sabanalarga", "Puerto Colombia", "Salgar", "Suan", "Campo de la Cruz", "Repelon", "Baranoa", "Galapa" }));
+        getContentPane().add(jComboOrigen, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 160, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Lugar de destino:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, -1, 30));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, -1, 30));
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Barranquilla", "Malambo", "Palmar de Varela", "Sabanalarga", "Puerto Colombia", "Salgar", "Suan", "Campo de la Cruz", "Repelon", "Baranoa", "Terminal Galapa" }));
-        getContentPane().add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, -1, -1));
+        jComboDestino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Barranquilla", "Malambo", "Palmar de Varela", "Sabanalarga", "Puerto Colombia", "Salgar", "Suan", "Campo de la Cruz", "Repelon", "Baranoa", "Galapa" }));
+        getContentPane().add(jComboDestino, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, 160, -1));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Fecha de partida:");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 120, 30));
-        getContentPane().add(jDateFechaPartida, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 163, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 120, 30));
+        getContentPane().add(jDateFechaPartida, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 250, 163, -1));
 
         jButtonAgregarRutaBus.setBackground(new java.awt.Color(204, 204, 255));
         jButtonAgregarRutaBus.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -114,47 +112,47 @@ public class InfoRutaBuses extends javax.swing.JFrame {
                 jButtonAgregarRutaBusActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonAgregarRutaBus, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, 173, 41));
+        getContentPane().add(jButtonAgregarRutaBus, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 370, 173, 41));
 
         jButtonVolverRutaBuses.setBackground(new java.awt.Color(204, 204, 255));
         jButtonVolverRutaBuses.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButtonVolverRutaBuses.setForeground(new java.awt.Color(255, 255, 255));
         jButtonVolverRutaBuses.setText("Volver");
-        getContentPane().add(jButtonVolverRutaBuses, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 350, 93, 41));
+        getContentPane().add(jButtonVolverRutaBuses, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 350, 93, 41));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("MM");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 290, -1, -1));
 
         jComboHora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23" }));
-        getContentPane().add(jComboHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 70, -1));
+        getContentPane().add(jComboHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, 70, -1));
 
         jComboMinutos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "15", "30", "45" }));
-        getContentPane().add(jComboMinutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 70, -1));
+        getContentPane().add(jComboMinutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 320, 70, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("<html><center>Información designada de la última ruta agregada:</center></html>");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 20, 230, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 60, 230, -1));
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("ID Ruta de bus\nNumero de bus\nPlaca de bus\nNombres y Apellidos de Conductor\nLugar de partida\nLugar de destino\nFecha de partida\nHora asignada de partida");
-        jScrollPane1.setViewportView(jTextArea1);
+        jTextAreaInfoRuta.setEditable(false);
+        jTextAreaInfoRuta.setColumns(20);
+        jTextAreaInfoRuta.setRows(5);
+        jTextAreaInfoRuta.setText("ID Ruta de bus\nNumero de bus\nPlaca de bus\nNombres y Apellidos de Conductor\nLugar de partida\nLugar de destino\nFecha de partida\nHora asignada de partida");
+        jScrollPane1.setViewportView(jTextAreaInfoRuta);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 90, 290, 190));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 140, 290, 190));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Hora de partida:");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, -1, -1));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("HH");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, -1, -1));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, -1, -1));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/3e11d0b4-01f7-4495-b1fc-1eea5bfc8a14.jpg"))); // NOI18N
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 450));
@@ -163,15 +161,7 @@ public class InfoRutaBuses extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAgregarRutaBusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgregarRutaBusActionPerformed
-        /*
-        Date fechaRuta = jDateChooser1.getDate();
-        
-        DateFormat formato = new SimpleDateFormat("yyyy/MM/dd");
-        
-        String fecha = formato.format(fechaRuta).toString(); 
-        
-        
-        */
+
     }//GEN-LAST:event_jButtonAgregarRutaBusActionPerformed
 
     /**
@@ -212,12 +202,12 @@ public class InfoRutaBuses extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton jButtonAgregarRutaBus;
     public javax.swing.JButton jButtonVolverRutaBuses;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox4;
+    public javax.swing.JComboBox<String> jComboDestino;
     public javax.swing.JComboBox<String> jComboHora;
+    public javax.swing.JComboBox<String> jComboID_Conductor;
     public javax.swing.JComboBox<String> jComboMinutos;
+    public javax.swing.JComboBox<String> jComboNumBUS;
+    public javax.swing.JComboBox<String> jComboOrigen;
     public com.toedter.calendar.JDateChooser jDateFechaPartida;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -231,6 +221,6 @@ public class InfoRutaBuses extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    public javax.swing.JTextArea jTextAreaInfoRuta;
     // End of variables declaration//GEN-END:variables
 }

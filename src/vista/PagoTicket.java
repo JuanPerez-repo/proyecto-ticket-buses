@@ -35,45 +35,44 @@ public class PagoTicket extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
+        jTextCVV = new javax.swing.JTextField();
+        jTextID_C = new javax.swing.JTextField();
+        jTextDireccion = new javax.swing.JTextField();
+        jTextNumTarjeta = new javax.swing.JTextField();
+        jTextLP_C = new javax.swing.JTextField();
+        jTextLD_C = new javax.swing.JTextField();
+        jTextHoraP_C = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboAnoVencimiento = new javax.swing.JComboBox<>();
         jLabel11 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        jTextApellidoTarjeta = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jComboCreditCard = new javax.swing.JComboBox<>();
         jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox<>();
         jLabel15 = new javax.swing.JLabel();
-        jComboBox5 = new javax.swing.JComboBox<>();
-        jTextField9 = new javax.swing.JTextField();
+        jComboMesVencimiento = new javax.swing.JComboBox<>();
+        jTextNAsiento_C = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
+        jTextNombre_C = new javax.swing.JTextField();
+        jTextApellido_C = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
-        jTextField12 = new javax.swing.JTextField();
-        jTextField13 = new javax.swing.JTextField();
+        jTextNombreTarjeta = new javax.swing.JTextField();
+        jTextCorreo = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
-        jTextField14 = new javax.swing.JTextField();
+        jTextTelefono = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        jTextField15 = new javax.swing.JTextField();
+        jTextCiudad = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
-        jTextField16 = new javax.swing.JTextField();
-        jTextField17 = new javax.swing.JTextField();
+        jTextPais = new javax.swing.JTextField();
+        jTextCodPostal = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
-        jTextField18 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jTextConfirmarID = new javax.swing.JTextField();
+        jButtonVolverAtras = new javax.swing.JButton();
+        jButtonPagar = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -83,12 +82,12 @@ public class PagoTicket extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Numero de asiento:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 190, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI Semilight", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Esta fue la información suministrada");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
+        jLabel3.setText("Esta es la información suministrada anteriormente:");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -97,172 +96,177 @@ public class PagoTicket extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Nombres (como aparece en la tarjeta):");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 480, -1, -1));
+        jLabel5.setText("Nombres (como aparece en la tarjeta)*:");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("<html>Número de la tarjeta (como aparece en la tarjeta)</html>");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 260, 320, -1));
+        jLabel6.setText("<html>Número de la tarjeta*:</html>");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 220, 200, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Lugar de partida:");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 70, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 70, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Lugar de destino:");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 110, -1, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 70, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Hora de partida:");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 150, -1, -1));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 410, 130, -1));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
+        getContentPane().add(jTextCVV, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 320, 70, -1));
 
-        jTextField2.setEnabled(false);
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 130, -1));
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 600, 180, -1));
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 320, 280, -1));
+        jTextID_C.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jTextID_C.setEnabled(false);
+        getContentPane().add(jTextID_C, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 130, -1));
+        getContentPane().add(jTextDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 460, 180, -1));
+        getContentPane().add(jTextNumTarjeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 250, 230, -1));
 
-        jTextField5.setEnabled(false);
-        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 70, 130, -1));
+        jTextLP_C.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jTextLP_C.setEnabled(false);
+        getContentPane().add(jTextLP_C, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 100, 130, -1));
 
-        jTextField6.setEnabled(false);
-        getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 110, 130, -1));
+        jTextLD_C.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jTextLD_C.setEnabled(false);
+        getContentPane().add(jTextLD_C, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 100, 130, -1));
 
-        jTextField7.setEnabled(false);
-        getContentPane().add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 150, 130, -1));
+        jTextHoraP_C.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jTextHoraP_C.setEnabled(false);
+        getContentPane().add(jTextHoraP_C, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 130, -1));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Apellidos (como aparece en la tarjeta):");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 520, -1, -1));
+        jLabel10.setText("Apellidos (como aparece en la tarjeta)*:");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 360, -1, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036" }));
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 410, 180, -1));
+        jComboAnoVencimiento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036" }));
+        getContentPane().add(jComboAnoVencimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 320, 110, -1));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("Año de vencimiento:");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 370, -1, -1));
+        jLabel11.setText("Año de vencimiento*:");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, -1, -1));
 
-        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+        jTextApellidoTarjeta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField8ActionPerformed(evt);
+                jTextApellidoTarjetaActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 520, 240, -1));
+        getContentPane().add(jTextApellidoTarjeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 390, 240, -1));
 
         jLabel12.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Seleccione su tarteja de crédito:");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, -1, -1));
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Visa", "MasterCard" }));
-        getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 200, -1));
+        jComboCreditCard.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Visa", "MasterCard" }));
+        getContentPane().add(jComboCreditCard, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 200, -1));
 
         jLabel13.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("CVV:");
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 370, -1, -1));
-
-        jLabel14.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText("Año de vencimiento:");
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 370, -1, -1));
-
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
-        getContentPane().add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 410, 180, -1));
+        jLabel13.setText("CVV*:");
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 290, -1, -1));
 
         jLabel15.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setText("Dirección:");
-        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 560, -1, -1));
+        jLabel15.setText("Dirección*:");
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 430, -1, -1));
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
-        getContentPane().add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, 180, -1));
+        jComboMesVencimiento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        getContentPane().add(jComboMesVencimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, 100, -1));
 
-        jTextField9.setEnabled(false);
-        getContentPane().add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 190, 130, -1));
+        jTextNAsiento_C.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jTextNAsiento_C.setEnabled(false);
+        getContentPane().add(jTextNAsiento_C, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, 130, -1));
 
         jLabel16.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("Apellidos:");
-        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, -1, -1));
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 70, -1, -1));
 
         jLabel17.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("Nombres:");
-        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, -1, -1));
+        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, -1, -1));
 
-        jTextField10.setEnabled(false);
-        getContentPane().add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 130, -1));
+        jTextNombre_C.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jTextNombre_C.setEnabled(false);
+        getContentPane().add(jTextNombre_C, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 130, -1));
 
-        jTextField11.setEnabled(false);
-        getContentPane().add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 130, -1));
+        jTextApellido_C.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jTextApellido_C.setEnabled(false);
+        getContentPane().add(jTextApellido_C, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 100, 130, -1));
 
         jLabel18.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel18.setText("Mes de vencimiento:");
-        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, -1, -1));
-        getContentPane().add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 480, 240, -1));
-        getContentPane().add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 600, 190, -1));
+        jLabel18.setText("Mes de vencimiento*:");
+        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, -1, -1));
+        getContentPane().add(jTextNombreTarjeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, 240, -1));
+        getContentPane().add(jTextCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 460, 190, -1));
 
         jLabel19.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel19.setText("Teléfono:");
-        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 560, -1, -1));
-        getContentPane().add(jTextField14, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 600, 140, -1));
+        jLabel19.setText("Teléfono*:");
+        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 430, -1, -1));
+        getContentPane().add(jTextTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 460, 140, -1));
 
         jLabel20.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel20.setText("Correo electrónico:");
-        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 560, -1, -1));
+        jLabel20.setText("Correo electrónico*:");
+        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, -1, -1));
 
         jLabel21.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel21.setText("Documento de Identificación:");
-        getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 740, -1, -1));
-        getContentPane().add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 690, 190, -1));
+        jLabel21.setText("Documento de Identificación*:");
+        getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 510, -1, -1));
+        getContentPane().add(jTextCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 460, 190, -1));
 
         jLabel22.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel22.setText("País");
-        getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 650, -1, -1));
-        getContentPane().add(jTextField16, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 690, 140, -1));
-        getContentPane().add(jTextField17, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 690, 180, -1));
+        jLabel22.setText("País*:");
+        getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 510, -1, -1));
+        getContentPane().add(jTextPais, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 540, 140, -1));
+        getContentPane().add(jTextCodPostal, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 540, 180, -1));
 
         jLabel23.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(255, 255, 255));
         jLabel23.setText("Código postal:");
-        getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 650, -1, -1));
+        getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 510, -1, -1));
 
         jLabel24.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel24.setText("Ciudad");
-        getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 650, -1, -1));
-        getContentPane().add(jTextField18, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 740, 190, -1));
+        jLabel24.setText("Ciudad*");
+        getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 430, -1, -1));
+        getContentPane().add(jTextConfirmarID, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 540, 200, -1));
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton1.setText("Volver");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 790, -1, -1));
+        jButtonVolverAtras.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButtonVolverAtras.setText("Volver");
+        getContentPane().add(jButtonVolverAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 600, -1, -1));
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton2.setText("Pagar");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 790, -1, -1));
+        jButtonPagar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButtonPagar.setText("Pagar");
+        getContentPane().add(jButtonPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 600, -1, -1));
+
+        jLabel14.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setText("(*) Campos obligatorios");
+        jLabel14.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 590, 280, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/3e11d0b4-01f7-4495-b1fc-1eea5bfc8a14.jpg"))); // NOI18N
         jLabel1.setText("Fondo");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 850));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 660));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+    private void jTextApellidoTarjetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextApellidoTarjetaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField8ActionPerformed
+    }//GEN-LAST:event_jTextApellidoTarjetaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -300,12 +304,11 @@ public class PagoTicket extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox4;
-    private javax.swing.JComboBox<String> jComboBox5;
+    public javax.swing.JButton jButtonPagar;
+    public javax.swing.JButton jButtonVolverAtras;
+    public javax.swing.JComboBox<String> jComboAnoVencimiento;
+    public javax.swing.JComboBox<String> jComboCreditCard;
+    public javax.swing.JComboBox<String> jComboMesVencimiento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -330,23 +333,23 @@ public class PagoTicket extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    public javax.swing.JTextField jTextField1;
-    public javax.swing.JTextField jTextField10;
-    public javax.swing.JTextField jTextField11;
-    public javax.swing.JTextField jTextField12;
-    public javax.swing.JTextField jTextField13;
-    public javax.swing.JTextField jTextField14;
-    public javax.swing.JTextField jTextField15;
-    public javax.swing.JTextField jTextField16;
-    public javax.swing.JTextField jTextField17;
-    public javax.swing.JTextField jTextField18;
-    public javax.swing.JTextField jTextField2;
-    public javax.swing.JTextField jTextField3;
-    public javax.swing.JTextField jTextField4;
-    public javax.swing.JTextField jTextField5;
-    public javax.swing.JTextField jTextField6;
-    public javax.swing.JTextField jTextField7;
-    public javax.swing.JTextField jTextField8;
-    public javax.swing.JTextField jTextField9;
+    public javax.swing.JTextField jTextApellidoTarjeta;
+    public javax.swing.JTextField jTextApellido_C;
+    public javax.swing.JTextField jTextCVV;
+    public javax.swing.JTextField jTextCiudad;
+    public javax.swing.JTextField jTextCodPostal;
+    public javax.swing.JTextField jTextConfirmarID;
+    public javax.swing.JTextField jTextCorreo;
+    public javax.swing.JTextField jTextDireccion;
+    public javax.swing.JTextField jTextHoraP_C;
+    public javax.swing.JTextField jTextID_C;
+    public javax.swing.JTextField jTextLD_C;
+    public javax.swing.JTextField jTextLP_C;
+    public javax.swing.JTextField jTextNAsiento_C;
+    public javax.swing.JTextField jTextNombreTarjeta;
+    public javax.swing.JTextField jTextNombre_C;
+    public javax.swing.JTextField jTextNumTarjeta;
+    public javax.swing.JTextField jTextPais;
+    public javax.swing.JTextField jTextTelefono;
     // End of variables declaration//GEN-END:variables
 }

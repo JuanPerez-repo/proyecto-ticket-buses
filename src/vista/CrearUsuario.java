@@ -62,8 +62,10 @@ public class CrearUsuario extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Doc. Identidad:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
+        jLabel3.setText("CC/NIT/ID:");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, -1, -1));
+
+        jTextIdCliente.setToolTipText("Una vez regitrado, usa el Documento de Identificación para poder acceder como usuario.");
         getContentPane().add(jTextIdCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 180, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
@@ -120,7 +122,7 @@ public class CrearUsuario extends javax.swing.JFrame {
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, -1, -1));
         getContentPane().add(jPasswordConfirmarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 390, 180, -1));
 
-        jButtonCrearUser.setText("Crear usuario");
+        jButtonCrearUser.setText("Registrarse");
         getContentPane().add(jButtonCrearUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 440, 130, 30));
 
         jButtonR_Usuario_Volver.setText("Volver");

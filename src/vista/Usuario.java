@@ -30,7 +30,7 @@ public class Usuario extends javax.swing.JFrame {
         jButtonReservarViaje = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabelTieneAsientosComprados = new javax.swing.JLabel();
         jLabelNombreUser = new javax.swing.JLabel();
         jButtonUserVerViajes = new javax.swing.JButton();
         jButtonLogoutUser = new javax.swing.JButton();
@@ -50,8 +50,8 @@ public class Usuario extends javax.swing.JFrame {
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/a199cae2-ada7-442a-a926-eaff34092564.jpg"))); // NOI18N
         jLabel4.setText("jLabel4");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
-        jLabel2.setText("Actualmente no tiene ningún asiento comprado.");
+        jLabelTieneAsientosComprados.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
+        jLabelTieneAsientosComprados.setText("Actualmente no tiene ningún asiento comprado.");
 
         jLabelNombreUser.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabelNombreUser.setText("¡Bienvenido, usuario!");
@@ -71,7 +71,7 @@ public class Usuario extends javax.swing.JFrame {
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(40, 40, 40)
-                        .addComponent(jLabel2)))
+                        .addComponent(jLabelTieneAsientosComprados)))
                 .addContainerGap(49, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -91,7 +91,7 @@ public class Usuario extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabelTieneAsientosComprados, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonUserVerViajes)
                 .addGap(39, 39, 39))
@@ -152,10 +152,10 @@ public class Usuario extends javax.swing.JFrame {
     public javax.swing.JButton jButtonLogoutUser;
     public javax.swing.JButton jButtonReservarViaje;
     public javax.swing.JButton jButtonUserVerViajes;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     public javax.swing.JLabel jLabelNombreUser;
+    public javax.swing.JLabel jLabelTieneAsientosComprados;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

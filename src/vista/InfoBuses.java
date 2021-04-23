@@ -64,7 +64,6 @@ public class InfoBuses extends javax.swing.JFrame {
 
         jButtonAnadirBus.setBackground(new java.awt.Color(204, 204, 255));
         jButtonAnadirBus.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jButtonAnadirBus.setForeground(new java.awt.Color(255, 255, 255));
         jButtonAnadirBus.setText("Añadir");
         getContentPane().add(jButtonAnadirBus, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, -1, -1));
 
@@ -74,7 +73,6 @@ public class InfoBuses extends javax.swing.JFrame {
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(258, 24, -1, -1));
 
         jButtonTablaBus.setBackground(new java.awt.Color(204, 204, 255));
-        jButtonTablaBus.setForeground(new java.awt.Color(255, 255, 255));
         jButtonTablaBus.setText("Actualizar tabla");
         getContentPane().add(jButtonTablaBus, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 150, 30));
 
@@ -119,7 +117,7 @@ public class InfoBuses extends javax.swing.JFrame {
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(258, 95, 90, -1));
 
         jTextNumBus.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        getContentPane().add(jTextNumBus, new org.netbeans.lib.awtextra.AbsoluteConstraints(127, 58, 60, -1));
+        getContentPane().add(jTextNumBus, new org.netbeans.lib.awtextra.AbsoluteConstraints(127, 58, 50, -1));
 
         jTextPlaca.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         getContentPane().add(jTextPlaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(127, 91, 100, -1));
@@ -131,7 +129,7 @@ public class InfoBuses extends javax.swing.JFrame {
         jComboBoxEliminarBus.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jComboBoxEliminarBus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Numero de bus" }));
         jComboBoxEliminarBus.setEnabled(false);
-        getContentPane().add(jComboBoxEliminarBus, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 90, 129, -1));
+        getContentPane().add(jComboBoxEliminarBus, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 100, 129, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -144,7 +142,6 @@ public class InfoBuses extends javax.swing.JFrame {
         getContentPane().add(jComboBoxModeloBuscarBus, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 130, 90, -1));
 
         jButtonHelpBus.setBackground(new java.awt.Color(204, 204, 255));
-        jButtonHelpBus.setForeground(new java.awt.Color(255, 255, 255));
         jButtonHelpBus.setText("Ayuda");
         getContentPane().add(jButtonHelpBus, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 350, 110, 30));
 
@@ -185,47 +182,43 @@ public class InfoBuses extends javax.swing.JFrame {
 
         jButtonIDsModificarBus.setBackground(new java.awt.Color(204, 204, 255));
         jButtonIDsModificarBus.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jButtonIDsModificarBus.setForeground(new java.awt.Color(255, 255, 255));
         jButtonIDsModificarBus.setText("Ver IDs");
         getContentPane().add(jButtonIDsModificarBus, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, 87, -1));
 
         jButtonModificarBus.setBackground(new java.awt.Color(204, 204, 255));
         jButtonModificarBus.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jButtonModificarBus.setForeground(new java.awt.Color(255, 255, 255));
         jButtonModificarBus.setText("Modificar información");
         jButtonModificarBus.setEnabled(false);
-        getContentPane().add(jButtonModificarBus, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 170, -1, -1));
+        getContentPane().add(jButtonModificarBus, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 170, -1, -1));
 
         jButtonVerIDsEliminarBus.setBackground(new java.awt.Color(204, 204, 255));
         jButtonVerIDsEliminarBus.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jButtonVerIDsEliminarBus.setForeground(new java.awt.Color(255, 255, 255));
         jButtonVerIDsEliminarBus.setText("Ver IDs");
-        getContentPane().add(jButtonVerIDsEliminarBus, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 120, -1, -1));
+        getContentPane().add(jButtonVerIDsEliminarBus, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 140, -1, -1));
 
         jButtonEliminarBus.setBackground(new java.awt.Color(204, 204, 255));
         jButtonEliminarBus.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jButtonEliminarBus.setForeground(new java.awt.Color(255, 255, 255));
         jButtonEliminarBus.setText("Eliminar");
         jButtonEliminarBus.setEnabled(false);
-        getContentPane().add(jButtonEliminarBus, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 120, -1, -1));
+        getContentPane().add(jButtonEliminarBus, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 140, -1, -1));
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Eliminar bus:");
-        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 30, -1, 20));
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 30, -1, 20));
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("Buscar por Número de bus");
-        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 60, 170, -1));
+        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 70, 170, -1));
 
         jButtonVolverBus.setBackground(new java.awt.Color(204, 204, 255));
-        jButtonVolverBus.setForeground(new java.awt.Color(255, 255, 255));
         jButtonVolverBus.setText("Volver");
         getContentPane().add(jButtonVolverBus, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 350, 105, 30));
 
         jButtonNumeroAleatorio.setText("R");
-        getContentPane().add(jButtonNumeroAleatorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, -1, 20));
+        jButtonNumeroAleatorio.setToolTipText("Número de bus aleatorio.");
+        getContentPane().add(jButtonNumeroAleatorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, -1, 20));
 
         jLabel3.setBackground(new java.awt.Color(153, 153, 153));
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/3e11d0b4-01f7-4495-b1fc-1eea5bfc8a14.jpg"))); // NOI18N

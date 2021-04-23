@@ -108,6 +108,7 @@ public class Login extends javax.swing.JFrame {
         jButtonAdmin.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButtonAdmin.setForeground(new java.awt.Color(255, 255, 255));
         jButtonAdmin.setText("Acceso a Administrador");
+        jButtonAdmin.setToolTipText("Ingrese el usuario de administrador en la caja de texto del Documento de Identidad.");
         jButtonAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAdminActionPerformed(evt);

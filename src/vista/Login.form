@@ -250,6 +250,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Acceso a Administrador"/>
+            <Property name="toolTipText" type="java.lang.String" value="Ingrese el usuario de administrador en la caja de texto del Documento de Identidad."/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAdminActionPerformed"/>

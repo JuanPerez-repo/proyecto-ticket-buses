@@ -25,8 +25,13 @@ public class ProyectoPerezCastroNarvaez {
         ComprarTicketBus cTB = new ComprarTicketBus();
         Buses modbus = new Buses();
         SQL_Buses modSqlbus = new SQL_Buses();
+        Rutas rutas = new Rutas();
+        SQL_Rutas rutassql = new SQL_Rutas();
+        PagoTicket pagoticket = new PagoTicket();
+        ReservaTicket reservaticket = new ReservaTicket();
+        SQL_ReservaTicket reservaticketsql = new SQL_ReservaTicket();
         
-        C_Login clogin = new C_Login(login, mlogin, admin, rUsuario, hcifrado, modSql, mod, user, conductor, buses, rutaBuses, modCond, modSqlCond, cTB, modbus, modSqlbus);
+        C_Login clogin = new C_Login(login, mlogin, admin, rUsuario, hcifrado, modSql, mod, user, conductor, buses, rutaBuses, modCond, modSqlCond, cTB, modbus, modSqlbus, rutassql, rutas, pagoticket, reservaticket, reservaticketsql);
         clogin.iniciarC_Login();
         login.setVisible(true);
         
