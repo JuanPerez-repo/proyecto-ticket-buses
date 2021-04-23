@@ -458,7 +458,12 @@ public class C_Login implements ActionListener {
                     JOptionPane.showMessageDialog(null, "El conductor fue agregado a la base de datos de manera exitosa.");
                     
                     //LIMPIAR CAMPOS AQUI DE LA INTERFAZ INFOCONDUCTOR
-
+                    
+                    conductor.jTextConductor_id.setText("");
+                    conductor.jTextNombres_cond.setText("");
+                    conductor.jTextApellidos_cond.setText("");
+                    
+                   
                 }
 
             }
@@ -524,8 +529,18 @@ public class C_Login implements ActionListener {
 
                 JOptionPane.showMessageDialog(null, "Los datos del conductor fueron actualizados exitosamente.", "Información", JOptionPane.INFORMATION_MESSAGE);
 
+                conductor.jTextModificarNombreConductor.setText("");
+                conductor.jTextModificarApellidoConductor.setText("");
+               
+                
             } else {
+                
                 JOptionPane.showMessageDialog(null, "Error al actualizar datos del conductor.", "Información", JOptionPane.ERROR_MESSAGE);
+            
+                conductor.jTextModificarNombreConductor.setText("");
+                conductor.jTextModificarApellidoConductor.setText("");
+                
+                
             }
 
         } else if (e.getSource() == conductor.jButtonEliminarConductor) { //ELIMINA UN CONDUCTOR DE LA BD (InfoConductor)
@@ -583,8 +598,11 @@ public class C_Login implements ActionListener {
 
                     JOptionPane.showMessageDialog(null, "El autobus fue añadido exitosamente.");
                     
-                    //LIMPIAR CAMPOS AQUI DE LA INTERFAZ INFOBUSES
-
+                    //LIMPIAR CAMPOS AQUI DE LA INTERFAZ 
+                    
+                    buses.jTextNumBus.setText("");
+                    buses.jTextPlaca.setText("");
+                    
                 }
             }
 
@@ -651,10 +669,14 @@ public class C_Login implements ActionListener {
 
                 JOptionPane.showMessageDialog(null, "Los datos se han actualizado de manera exitosa", "Información", JOptionPane.INFORMATION_MESSAGE);
 
+                buses.jTextBuscarPlacaBus.setText("");
+                
             } else {
 
                 JOptionPane.showMessageDialog(null, "No se han podido actualizar los datos", "Información", JOptionPane.ERROR_MESSAGE);
 
+                buses.jTextBuscarPlacaBus.setText("");
+                
             }
 
         } else if (e.getSource() == buses.jButtonTablaBus) {
@@ -878,6 +900,26 @@ public class C_Login implements ActionListener {
                         user.setVisible(true);
                         
                         //LIMPIAR CAMPOS AQUI DE LA INTERFAZ PAGOTICKET (SOLO CAMPOS DE TEXTO)
+                        
+                        pagoticket.jTextID_C.setText("");
+                        pagoticket.jTextNombre_C.setText("");
+                        pagoticket.jTextApellido_C.setText("");
+                        pagoticket.jTextLP_C.setText("");
+                        pagoticket.jTextLD_C.setText("");
+                        pagoticket.jTextHoraP_C.setText("");
+                        pagoticket.jTextNAsiento_C.setText("");
+                        pagoticket.jTextNumTarjeta.setText("");
+                        pagoticket.jTextCVV.setText("");
+                        pagoticket.jTextNombreTarjeta.setText("");
+                        pagoticket.jTextApellidoTarjeta.setText("");
+                        pagoticket.jTextCorreo.setText("");
+                        pagoticket.jTextTelefono.setText("");
+                        pagoticket.jTextDireccion.setText("");
+                        pagoticket.jTextCiudad.setText("");
+                        pagoticket.jTextPais.setText("");
+                        pagoticket.jTextCodPostal.setText("");
+                        pagoticket.jTextConfirmarID.setText("");
+                        
                         
                     }
 
